@@ -6,12 +6,13 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.doanltdd_1.Entity.Unit
 
-class UnitAdapter(private val units: List<String>) : RecyclerView.Adapter<UnitAdapter.UnitViewHolder>() {
+class UnitAdapter(private val units: List<Unit>) : RecyclerView.Adapter<UnitAdapter.UnitViewHolder>() {
 
-    inner class UnitViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val unitIcon: ImageView = itemView.findViewById(R.id.unit_icon)
+    class UnitViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val unitName: TextView = itemView.findViewById(R.id.unit_name)
+        val unitImage: ImageView = itemView.findViewById(R.id.unit_icon)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UnitViewHolder {
@@ -21,8 +22,8 @@ class UnitAdapter(private val units: List<String>) : RecyclerView.Adapter<UnitAd
 
     override fun onBindViewHolder(holder: UnitViewHolder, position: Int) {
         val unit = units[position]
-        holder.unitName.text = unit
-         holder.unitIcon.setImageResource(R.drawable.ic_hand_icon)
+        holder.unitName.text = unit.name
+        holder.unitImage.setImageResource(unit.image)
     }
 
     override fun getItemCount() = units.size

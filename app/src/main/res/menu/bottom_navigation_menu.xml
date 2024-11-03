@@ -3,13 +3,13 @@
     <item
         android:id="@+id/navigation_vocabulary"
         android:icon="@drawable/ic_home"
-        android:title="Vocabulary" />
+        android:title="@string/vocalbulary" />
     <item
         android:id="@+id/navigation_grammar"
         android:icon="@drawable/ic_grammar"
-        android:title="Grammar" />
+        android:title="@string/grammar" />
     <item
         android:id="@+id/navigation_exercise"
         android:icon="@drawable/ic_exercise"
-        android:title="Exercise" />
+        android:title="@string/exercise" />
 </menu>
