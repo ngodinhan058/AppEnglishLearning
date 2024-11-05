@@ -48,7 +48,7 @@ class VocabularyActivity : AppCompatActivity() {
             mediaPlayer = MediaPlayer.create(this, vocabularyList[currentIndex].audioResId)
             mediaPlayer.start()
         }
-        // Phát âm thanh
+        // Phát âm thanh sau
         playAudioButtonBack.setOnClickListener {
             mediaPlayer = MediaPlayer.create(this, vocabularyList[currentIndex].audioResId)
             mediaPlayer.start()
@@ -92,11 +92,12 @@ class VocabularyActivity : AppCompatActivity() {
 
     private fun updateFlashcard() {
         val vocabulary = vocabularyList[currentIndex]
+        //Mặt Trước
         findViewById<TextView>(R.id.flashcard_word).text = vocabulary.word
         findViewById<TextView>(R.id.flashcard_part_of_speech).text = vocabulary.partOfSpeech
         findViewById<TextView>(R.id.flashcard_phonetic).text = vocabulary.phonetic
         findViewById<ImageView>(R.id.flashcard_image).setImageResource(vocabulary.image)
-
+        //Mặt Sau
         findViewById<TextView>(R.id.flashcard_part_of_speech_back).text = vocabulary.partOfSpeech
         findViewById<TextView>(R.id.flashcard_phonetic_back).text = vocabulary.phonetic
         findViewById<TextView>(R.id.flashcard_meaning).text = vocabulary.meaning
