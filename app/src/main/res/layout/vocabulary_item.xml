@@ -1,147 +1,186 @@
 <!-- flashcard_item.xml -->
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="center"
     android:padding="16dp">
 
-    <!-- Mặt trước của Flashcard -->
     <LinearLayout
-        android:id="@+id/front_card"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center"
-        android:background="@drawable/unit_background"
-        android:visibility="visible">
+        android:padding="16dp"
+        android:background="@android:color/white">
 
-        <ImageView
-            android:id="@+id/flashcard_image"
-            android:layout_width="150dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_hand_icon" />
+        <!-- Flashcard -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
 
-        <TextView
-            android:id="@+id/flashcard_word"
-            android:layout_width="wrap_content"
+            <!-- Mặt trước của Flashcard -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/front_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/unit_background"
+                android:visibility="visible"
+                app:cardElevation="4dp"
+                app:cardCornerRadius="8dp">
+
+                <ImageView
+                    android:id="@+id/flashcard_image"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_hand_icon" />
+
+                <TextView
+                    android:id="@+id/flashcard_word"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="200dp"
+                    android:gravity="center"
+                    android:paddingTop="16dp"
+                    android:text="hoạt động"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/flashcard_part_of_speech"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="245dp"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:text="n"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/flashcard_phonetic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="270dp"
+                    android:gravity="center"
+                    android:paddingVertical="8dp"
+                    android:text="/ækˈtɪv.ə.ti/"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:id="@+id/button_play_audio"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:src="@drawable/ic_home"
+                    android:contentDescription="Play Audio" />
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Mặt sau của Flashcard -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/back_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:visibility="gone"
+                android:background="@drawable/unit_background"
+                app:cardElevation="4dp"
+                app:cardCornerRadius="8dp">
+
+                <ImageView
+                    android:id="@+id/flashcard_image_back"
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_hand_icon" />
+
+                <TextView
+                    android:id="@+id/flashcard_meaning"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Meaning in Vietnamese"
+                    android:layout_marginTop="200dp"
+                    android:textSize="24sp"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    android:paddingTop="16dp" />
+
+                <TextView
+                    android:id="@+id/flashcard_part_of_speech_back"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="n"
+                    android:textSize="16sp"
+                    android:layout_marginTop="245dp"
+                    android:gravity="center"
+                    android:textColor="@android:color/black"
+                    android:paddingTop="8dp" />
+
+                <TextView
+                    android:id="@+id/flashcard_phonetic_back"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="/ækˈtɪv.ə.ti/"
+                    android:textSize="16sp"
+                    android:layout_marginTop="270dp"
+                    android:paddingVertical="8dp"
+                    android:gravity="center"
+                    android:textColor="@android:color/black" />
+
+                <ImageView
+                    android:id="@+id/button_play_audio_back"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:src="@drawable/ic_home"
+                    android:contentDescription="Play Audio" />
+
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <!-- Nút điều hướng Previous và Next -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="hoạt động"
-            android:textSize="24sp"
+            android:orientation="horizontal"
             android:gravity="center"
-            android:textColor="@android:color/black"
-            android:paddingTop="16dp" />
+            android:paddingTop="16dp"
+            android:layout_marginBottom="16dp">
 
-        <TextView
-            android:id="@+id/flashcard_part_of_speech"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="n"
-            android:textSize="16sp"
-            android:gravity="center"
-            android:textColor="@android:color/black"
-            android:paddingTop="8dp" />
+            <Button
+                android:id="@+id/button_previous"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Previous"
+                android:layout_marginEnd="16dp"
+                android:textColor="@android:color/white" />
 
-        <TextView
-            android:id="@+id/flashcard_phonetic"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="/ækˈtɪv.ə.ti/"
-            android:textSize="16sp"
-            android:gravity="center"
-            android:textColor="@android:color/black"
-            android:paddingTop="8dp" />
+            <Button
+                android:id="@+id/button_next"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Next"
+                android:textColor="@android:color/white" />
 
-        <ImageView
-            android:id="@+id/button_play_audio"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_gravity="end"
-            android:layout_marginEnd="32dp"
-            android:src="@drawable/ic_home"
-            android:contentDescription="Play Audio" />
+        </LinearLayout>
+
     </LinearLayout>
 
-    <!-- Mặt sau của Flashcard -->
-    <LinearLayout
-        android:id="@+id/back_card"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:background="@drawable/unit_background"
-        android:visibility="gone">
-
-        <ImageView
-            android:id="@+id/flashcard_image_back"
-            android:layout_width="150dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_hand_icon" />
-
-        <TextView
-            android:id="@+id/flashcard_meaning"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Meaning in Vietnamese"
-            android:textSize="24sp"
-            android:gravity="center"
-            android:textColor="@android:color/black" />
-
-        <TextView
-            android:id="@+id/flashcard_part_of_speech_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="n"
-            android:textSize="16sp"
-            android:gravity="center"
-            android:textColor="@android:color/black"
-            android:paddingTop="8dp" />
-
-        <TextView
-            android:id="@+id/flashcard_phonetic_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="/ækˈtɪv.ə.ti/"
-            android:textSize="16sp"
-            android:gravity="center"
-            android:textColor="@android:color/black"
-            android:paddingTop="8dp" />
-
-        <ImageView
-            android:id="@+id/button_play_audio_back"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_gravity="end"
-            android:layout_marginEnd="32dp"
-            android:src="@drawable/ic_home"
-            android:contentDescription="Play Audio" />
-
-
-
-
-
-    </LinearLayout>
-
-    <!-- Nút điều hướng Previous và Next -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_gravity="bottom"
-        android:paddingTop="16dp">
-
-        <Button
-            android:id="@+id/button_previous"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Previous" />
-
-        <Button
-            android:id="@+id/button_next"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Next" />
-    </LinearLayout>
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

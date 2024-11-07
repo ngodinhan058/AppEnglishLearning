@@ -1,5 +1,8 @@
 package com.example.doanltdd_1
 
+import android.animation.Animator
+import android.animation.AnimatorInflater
+import android.animation.AnimatorSet
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.View
@@ -72,21 +75,37 @@ class VocabularyActivity : AppCompatActivity() {
     }
 
     private fun flipCard() {
-        val flipIn = AnimationUtils.loadAnimation(this, R.anim.card_flip_in)
-        val flipOut = AnimationUtils.loadAnimation(this, R.anim.card_flip_out)
+        val flipIn = AnimatorInflater.loadAnimator(this, R.animator.card_flip_in) as AnimatorSet
+        val flipOut = AnimatorInflater.loadAnimator(this, R.animator.card_flip_out) as AnimatorSet
 
         if (isFrontVisible) {
-            frontCard.startAnimation(flipOut)
+            flipOut.setTarget(frontCard)
             frontCard.visibility = View.GONE
             backCard.visibility = View.VISIBLE
-            backCard.startAnimation(flipIn)
+            flipIn.setTarget(backCard)
         } else {
-            backCard.startAnimation(flipOut)
+            flipOut.setTarget(backCard)
             backCard.visibility = View.GONE
             frontCard.visibility = View.VISIBLE
-            frontCard.startAnimation(flipIn)
+            flipIn.setTarget(frontCard)
         }
+
+        flipOut.start()
+        flipIn.start()
         isFrontVisible = !isFrontVisible
+
+
+//        if (isFrontVisible) {
+//            frontCard.startAnimation(flipOut)
+//            frontCard.visibility = View.GONE
+//            backCard.visibility = View.VISIBLE
+//            backCard.startAnimation(flipIn)
+//        } else {
+//            backCard.startAnimation(flipOut)
+//            backCard.visibility = View.GONE
+//            frontCard.visibility = View.VISIBLE
+//            frontCard.startAnimation(flipIn)
+//        }
     }
 
 
@@ -110,6 +129,9 @@ class VocabularyActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        mediaPlayer.release()
+        if (this::mediaPlayer.isInitialized) {
+            mediaPlayer.release()
+        }
     }
+
 }
