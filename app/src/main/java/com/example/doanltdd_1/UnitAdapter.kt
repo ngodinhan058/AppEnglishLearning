@@ -30,7 +30,7 @@ class UnitAdapter(
 
         // Thiết lập click listener để gửi unitId khi nhấn vào
         holder.itemView.setOnClickListener {
-            onUnitClick(unit.id) // Giả sử `unit.id` là `unitId`
+            onUnitClick(unit.id)
         }
     }
 

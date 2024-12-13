@@ -1,5 +1,6 @@
 package com.example.doanltdd_1.DataSource
 
+import com.example.doanltdd_1.Entity.Question
 import com.example.doanltdd_1.Entity.Unit
 import com.example.doanltdd_1.Entity.Vocabulary
 import com.example.doanltdd_1.R
@@ -35,6 +36,31 @@ object DataSource {
 
         // Add more vocabulary items as needed
     )
+
+    val questions = listOf(
+        Question(
+            id = 1,
+            text = "I______ know the correct answer.",
+            answers = listOf("am not", "not", "don’t", "doesn’t"),
+            correctAnswerIndex = 2,
+            idUnit = 1
+        ),
+        Question(
+            id = 2,
+            text = "She ______ to school every day.",
+            answers = listOf("go", "goes", "going", "gone"),
+            correctAnswerIndex = 1,
+            idUnit = 1
+        ),
+        Question(
+            id = 3,
+            text = "They ______ playing football now.",
+            answers = listOf("are", "is", "was", "were"),
+            correctAnswerIndex = 0,
+            idUnit = 2
+        )
+    )
+
 
     // Method to get vocabulary by Unit ID
     fun getVocabularyByUnitId(unitId: Int): List<Vocabulary> {
