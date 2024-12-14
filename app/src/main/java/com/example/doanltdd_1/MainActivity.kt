@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.navigation_vocabulary -> {
                     // Màn hình hiện tại
+
                     true
 
                 }
@@ -39,8 +40,8 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.navigation_exercise -> {
                     // Chuyển đến màn hình Exercise
-                    true
-                    val intent = Intent(this, ExerciseActivity::class.java)
+
+                    val intent = Intent(this, ListUnitExerciseActivity::class.java)
                     startActivity(intent)
                     true
 

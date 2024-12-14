@@ -49,4 +49,29 @@
         android:text="Score: 0"
         android:layout_gravity="center"
         android:padding="16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingTop="16dp"
+        android:layout_marginBottom="16dp">
+
+        <Button
+            android:id="@+id/btnPre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Previous"
+            android:layout_marginEnd="16dp"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
 </LinearLayout>

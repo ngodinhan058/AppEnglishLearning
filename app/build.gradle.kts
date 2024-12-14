@@ -45,6 +45,7 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+
     // Sửa lại dòng này với dấu ngoặc kép
     implementation("com.google.android.material:material:1.9.0")
 }

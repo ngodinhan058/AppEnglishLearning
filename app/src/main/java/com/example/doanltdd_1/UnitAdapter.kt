@@ -6,11 +6,13 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.doanltdd_1.DataSource.DataSource
+import com.example.doanltdd_1.Entity.Question
 import com.example.doanltdd_1.Entity.Unit
 
 class UnitAdapter(
     private val units: List<Unit>,
-    private val onUnitClick: (Int) -> kotlin.Unit  // Truyền unitId khi nhấn vào
+    private val onUnitClick: (Int) -> kotlin.Unit
 ) : RecyclerView.Adapter<UnitAdapter.UnitViewHolder>() {
 
     class UnitViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -28,11 +30,13 @@ class UnitAdapter(
         holder.unitName.text = unit.name
         holder.unitImage.setImageResource(unit.image)
 
-        // Thiết lập click listener để gửi unitId khi nhấn vào
         holder.itemView.setOnClickListener {
             onUnitClick(unit.id)
+
         }
+
     }
+
 
     override fun getItemCount() = units.size
 }
