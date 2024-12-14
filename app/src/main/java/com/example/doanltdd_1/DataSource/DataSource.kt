@@ -1,19 +1,18 @@
 package com.example.doanltdd_1.DataSource
 
 import com.example.doanltdd_1.Entity.Question
-import com.example.doanltdd_1.Entity.Unit
+import com.example.doanltdd_1.Entity.UnitEntity
 import com.example.doanltdd_1.Entity.Vocabulary
 import com.example.doanltdd_1.R
 
 object DataSource {
     val units = listOf(
-        Unit(1, "Unit 1", R.drawable.ic_hand_icon),
-        Unit(2, "Unit 2", R.drawable.ic_exercise),
-        Unit(3, "Unit 3", R.drawable.ic_launcher_foreground),
-        Unit(4, "Unit 4", R.drawable.ic_home),
-        Unit(5, "Unit 5", R.drawable.ic_grammar),
-        Unit(6, "Unit 6", R.drawable.ic_launcher_foreground),
-
+        UnitEntity(1, "Unit 1", R.drawable.ic_hand_icon),
+        UnitEntity(2, "Unit 2", R.drawable.ic_exercise),
+        UnitEntity(3, "Unit 3", R.drawable.ic_launcher_foreground),
+        UnitEntity(4, "Unit 4", R.drawable.ic_home),
+        UnitEntity(5, "Unit 5", R.drawable.ic_grammar),
+        UnitEntity(6, "Unit 6", R.drawable.ic_launcher_foreground)
 
         )
 
@@ -147,7 +146,6 @@ object DataSource {
     )
 
     val questions = listOf(
-
 
         Question(
             id = 1,

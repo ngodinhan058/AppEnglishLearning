@@ -8,10 +8,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.doanltdd_1.DataSource.DataSource
 import com.example.doanltdd_1.Entity.Question
-import com.example.doanltdd_1.Entity.Unit
+import com.example.doanltdd_1.Entity.UnitEntity
 
 class UnitAdapter(
-    private val units: List<Unit>,
+    private val units: List<UnitEntity>,
     private val onUnitClick: (Int) -> kotlin.Unit
 ) : RecyclerView.Adapter<UnitAdapter.UnitViewHolder>() {
 
@@ -28,7 +28,7 @@ class UnitAdapter(
     override fun onBindViewHolder(holder: UnitViewHolder, position: Int) {
         val unit = units[position]
         holder.unitName.text = unit.name
-        holder.unitImage.setImageResource(unit.image)
+        holder.unitImage.setImageResource(unit.iconResId)
 
         holder.itemView.setOnClickListener {
             onUnitClick(unit.id)
