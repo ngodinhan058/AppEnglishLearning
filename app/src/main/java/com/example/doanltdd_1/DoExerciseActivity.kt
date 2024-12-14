@@ -43,26 +43,6 @@ class DoExerciseActivity : AppCompatActivity() {
             answer3.text = currentQuestion.answers[2]
             answer4.text = currentQuestion.answers[3]
         }
-        btnPre.setOnClickListener {
-            if (index > 0) {
-                val currentQuestion: Question = questions[index - 1]
-                questionText.text = currentQuestion.text
-                answer1.text = currentQuestion.answers[0]
-                answer2.text = currentQuestion.answers[1]
-                answer3.text = currentQuestion.answers[2]
-                answer4.text = currentQuestion.answers[3]
-            }
-        }
-        btnNext.setOnClickListener {
-            if (index < questions.size - 1) {
-                val currentQuestion: Question = questions[index + 1]
-                questionText.text = currentQuestion.text
-                answer1.text = currentQuestion.answers[0]
-                answer2.text = currentQuestion.answers[1]
-                answer3.text = currentQuestion.answers[2]
-                answer4.text = currentQuestion.answers[3]
-            }
-        }
 
     }
 }
