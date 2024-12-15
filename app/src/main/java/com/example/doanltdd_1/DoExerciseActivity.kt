@@ -115,6 +115,9 @@ class DoExerciseActivity : AppCompatActivity() {
                 } else {
                     timerText.text = "Finished!"
                     questionText.text = "Quiz Completed!"
+                    questionLayout.visibility = LinearLayout.GONE
+                    answerCorrect.text = "Correct: ${correctNumber}"
+                    answerFail.text = "Incorrect: ${incorrectNumber}"
                 }
             }
         }
