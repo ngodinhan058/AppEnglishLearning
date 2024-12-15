@@ -30,7 +30,8 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.navigation_vocabulary -> {
                     // Màn hình hiện tại
-
+                    val intent = Intent(this, VocabularyActivity::class.java)
+                    startActivity(intent)
                     true
 
                 }
