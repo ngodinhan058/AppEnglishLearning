@@ -25,8 +25,8 @@ class ListUnitExerciseActivity : AppCompatActivity() {
         val databaseUtils = Database(applicationContext);
         database = databaseUtils.getDatabase()
         databaseUtils.getDatabase()
-//        databaseUtils.insertUnits()
-//        databaseUtils.insertQuestions()
+        databaseUtils.insertUnits()
+        databaseUtils.insertQuestions()
 
 
         // Use a coroutine to fetch data
