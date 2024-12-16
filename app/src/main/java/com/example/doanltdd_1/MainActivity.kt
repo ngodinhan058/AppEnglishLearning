@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         val databaseUtils = Database(applicationContext);
         database = databaseUtils.getDatabase()
         databaseUtils.getDatabase()
-//        databaseUtils.insertUnits()
+        databaseUtils.insertUnits()
         databaseUtils.insertVocabulary( )
         
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
@@ -54,9 +54,6 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_vocabulary -> {
-                    // Màn hình hiện tại
-                    val intent = Intent(this, VocabularyActivity::class.java)
-                    startActivity(intent)
                     true
 
                 }

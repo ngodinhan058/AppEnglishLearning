@@ -1,5 +1,7 @@
 package com.example.doanltdd_1
 
+import android.animation.AnimatorInflater
+import android.animation.AnimatorSet
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.View
@@ -35,7 +37,10 @@ class VocabularyActivity : AppCompatActivity() {
         playAudioButtonBack = findViewById(R.id.button_play_audio_back)
         previousButton = findViewById(R.id.button_previous)
         nextButton = findViewById(R.id.button_next)
-
+// Thiết lập cameraDistance trong code
+        val scale = resources.displayMetrics.density // Lấy mật độ màn hình
+        frontCard.cameraDistance = 5000 * scale
+        backCard.cameraDistance = 5000 * scale
         val unitId = intent.getIntExtra("unitId", -1)
 
         // Load data from Room database
@@ -76,10 +81,26 @@ class VocabularyActivity : AppCompatActivity() {
     }
 
     private fun flipCard() {
+        val flipIn = AnimatorInflater.loadAnimator(this, R.animator.card_flip_in) as AnimatorSet
+        val flipOut = AnimatorInflater.loadAnimator(this, R.animator.card_flip_out) as AnimatorSet
+
+        if (isFrontVisible) {
+            flipOut.setTarget(frontCard)
+            frontCard.visibility = View.GONE
+            backCard.visibility = View.VISIBLE
+            flipIn.setTarget(backCard)
+        } else {
+            flipOut.setTarget(backCard)
+            backCard.visibility = View.GONE
+            frontCard.visibility = View.VISIBLE
+            flipIn.setTarget(frontCard)
+        }
+
+        flipOut.start()
+        flipIn.start()
         isFrontVisible = !isFrontVisible
-        frontCard.visibility = if (isFrontVisible) View.VISIBLE else View.GONE
-        backCard.visibility = if (!isFrontVisible) View.VISIBLE else View.GONE
     }
+
 
     private fun updateFlashcard() {
         val vocabulary = vocabularyList[currentIndex]
