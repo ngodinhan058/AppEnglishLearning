@@ -6,28 +6,32 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.doanltdd_1.DataSource.DataSource
+import androidx.room.Room
 import com.example.doanltdd_1.Entity.AppDatabase
 import com.example.doanltdd_1.Untils.Database
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class MainActivity : AppCompatActivity() {
+class ListUnitExerciseActivity : AppCompatActivity() {
+
     lateinit var database: AppDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.exercise_list_unit)
+
+
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
 
         val databaseUtils = Database(applicationContext);
         database = databaseUtils.getDatabase()
         databaseUtils.getDatabase()
         databaseUtils.insertUnits()
-        databaseUtils.insertVocabulary( )
-        
-        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
+        databaseUtils.insertQuestions()
 
+
+        // Use a coroutine to fetch data
         GlobalScope.launch {
             val dao = database.unitDao()
             val allUnits = dao.getAllUnits()
@@ -37,10 +41,10 @@ class MainActivity : AppCompatActivity() {
                 // Update the UI on the main thread
                 runOnUiThread {
                     val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
-                    recyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
+                    recyclerView.layoutManager = LinearLayoutManager(this@ListUnitExerciseActivity)
                     recyclerView.adapter = UnitAdapter(allUnits) { unitId ->
                         // Handle item clicks
-                        val intent = Intent(this@MainActivity, VocabularyActivity::class.java)
+                        val intent = Intent(this@ListUnitExerciseActivity, DoExerciseActivity::class.java)
                         intent.putExtra("unitId", unitId)
                         startActivity(intent)
                     }
@@ -49,11 +53,13 @@ class MainActivity : AppCompatActivity() {
                 Log.d("Unit", "No units found in the database.")
             }
         }
-
         // Thiết lập điều hướng cho BottomNavigationView
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_vocabulary -> {
+                    // Màn hình hiện tại
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
                     true
 
                 }
@@ -62,10 +68,6 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.navigation_exercise -> {
-                    // Chuyển đến màn hình Exercise
-
-                    val intent = Intent(this, ListUnitExerciseActivity::class.java)
-                    startActivity(intent)
                     true
 
                 }

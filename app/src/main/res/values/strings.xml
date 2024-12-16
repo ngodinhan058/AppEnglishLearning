@@ -3,4 +3,14 @@
     <string name="vocalbulary">Vocalbulary</string>
     <string name="grammar">Grammar</string>
     <string name="exercise">Exercise</string>
+    <string name="exercise1">Exercise</string>
+    <string name="back">Back</string>
+    <string name="time_00_00">Time: 00:00</string>
+    <string name="question_here">Question here</string>
+    <string name="option_1">Option 1</string>
+    <string name="option_2">Option 2</string>
+    <string name="option_3">Option 3</string>
+    <string name="option_4">Option 4</string>
+    <string name="score_0">Score: 0</string>
+    <string name="time_30_sec">Time: 30 sec</string>
 </resources>
