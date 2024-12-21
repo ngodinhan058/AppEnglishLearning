@@ -11,13 +11,14 @@ import com.example.doanltdd_1.Entity.Question
 import com.example.doanltdd_1.Entity.UnitEntity
 
 class UnitAdapter(
-    private val units: List<UnitEntity>,
-    private val onUnitClick: (Int) -> kotlin.Unit
+    private val unitList: List<UnitEntity>, // Đổi tên "units" thành "unitList" để rõ nghĩa hơn
+    private val onUnitClick: (Int) -> Unit // Giữ đúng chuẩn Kotlin (Unit không cần "kotlin.Unit")
 ) : RecyclerView.Adapter<UnitAdapter.UnitViewHolder>() {
 
+    // ViewHolder cho từng item của RecyclerView
     class UnitViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val unitName: TextView = itemView.findViewById(R.id.unit_name)
-        val unitImage: ImageView = itemView.findViewById(R.id.unit_icon)
+        val unitNameTextView: TextView = itemView.findViewById(R.id.unit_name)
+        val unitIconImageView: ImageView = itemView.findViewById(R.id.unit_icon)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UnitViewHolder {
@@ -26,17 +27,16 @@ class UnitAdapter(
     }
 
     override fun onBindViewHolder(holder: UnitViewHolder, position: Int) {
-        val unit = units[position]
-        holder.unitName.text = unit.name
-        holder.unitImage.setImageResource(unit.iconResId)
+        val unit = unitList[position] // Lấy unit theo vị trí
+        holder.unitNameTextView.text = unit.name
+        holder.unitIconImageView.setImageResource(unit.iconResId)
 
+        // Xử lý khi click vào item
         holder.itemView.setOnClickListener {
             onUnitClick(unit.id)
-
         }
-
     }
 
-
-    override fun getItemCount() = units.size
+    override fun getItemCount(): Int = unitList.size
 }
+

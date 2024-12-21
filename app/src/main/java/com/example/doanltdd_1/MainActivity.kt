@@ -20,57 +20,62 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val databaseUtils = Database(applicationContext);
+        val databaseUtils = Database(applicationContext)
         database = databaseUtils.getDatabase()
-        databaseUtils.getDatabase()
         databaseUtils.insertUnits()
-        databaseUtils.insertVocabulary( )
-        
+        databaseUtils.insertVocabulary()
+        databaseUtils.insertGrammar()
+
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
+        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
 
-        GlobalScope.launch {
-            val dao = database.unitDao()
-            val allUnits = dao.getAllUnits()
-            Log.d("Unit", allUnits.toString())
-            // Ensure the list is not empty
-            if (allUnits.isNotEmpty()) {
-                // Update the UI on the main thread
-                runOnUiThread {
-                    val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
-                    recyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
-                    recyclerView.adapter = UnitAdapter(allUnits) { unitId ->
-                        // Handle item clicks
-                        val intent = Intent(this@MainActivity, VocabularyActivity::class.java)
-                        intent.putExtra("unitId", unitId)
-                        startActivity(intent)
-                    }
-                }
-            } else {
-                Log.d("Unit", "No units found in the database.")
-            }
-        }
+        // Mặc định tải Units của Vocabulary
+        loadUnits("vocabulary")
+        bottomNavigationView.selectedItemId = R.id.navigation_vocabulary
 
-        // Thiết lập điều hướng cho BottomNavigationView
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_vocabulary -> {
+                    loadUnits("vocabulary")
                     true
-
                 }
                 R.id.navigation_grammar -> {
-                    // Chuyển đến màn hình Grammar
+                    loadUnits("grammar")
                     true
                 }
                 R.id.navigation_exercise -> {
-                    // Chuyển đến màn hình Exercise
-
                     val intent = Intent(this, ListUnitExerciseActivity::class.java)
                     startActivity(intent)
                     true
-
                 }
                 else -> false
             }
         }
     }
+
+    private fun loadUnits(screenType: String) {
+        GlobalScope.launch {
+            val dao = database.unitDao()
+            val allUnits = dao.getAllUnits()
+            runOnUiThread {
+                val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
+                recyclerView.adapter = UnitAdapter(allUnits) { unitId ->
+                    when (screenType) {
+                        "vocabulary" -> {
+                            val intent = Intent(this@MainActivity, VocabularyActivity::class.java)
+                            intent.putExtra("unitId", unitId)
+                            startActivity(intent)
+                        }
+                        "grammar" -> {
+                            val intent = Intent(this@MainActivity, GrammarActivity::class.java)
+                            intent.putExtra("unitId", unitId)
+                            startActivity(intent)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }

@@ -3,6 +3,7 @@ package com.example.doanltdd_1.Untils
 import android.content.Context
 import androidx.room.Room
 import com.example.doanltdd_1.Entity.AppDatabase
+import com.example.doanltdd_1.Entity.Grammar
 import com.example.doanltdd_1.Entity.Question
 import com.example.doanltdd_1.Entity.UnitEntity
 import com.example.doanltdd_1.Entity.Vocabulary
@@ -48,6 +49,49 @@ class Database(applicationContext: Context) {
             }
         }
     }
+    fun insertGrammar() {
+            val grammarList = listOf(
+                Grammar(
+                    unitId = 1,
+                    title = "Present Simple Tense",
+                    content = "Rules and examples about present simple."
+                ),
+                Grammar(
+                    unitId = 1,
+                    title = "Present Continuous Tense",
+                    content = "Rules and examples about present continuous."
+                ),
+                Grammar(
+                    unitId = 2,
+                    title = "Prepositions of Place",
+                    content = "Explanation of prepositions with examples."
+                ),
+                Grammar(
+                    unitId = 3,
+                    title = "Present Perfect Tense",
+                    content = "Rules and examples about present perfect."
+                ),
+                Grammar(
+                    unitId = 4,
+                    title = "Comparative Adjectives",
+                    content = "Usage and rules of comparative adjectives."
+                ),
+                Grammar(
+                    unitId = 5,
+                    title = "Modal Verbs",
+                    content = "Explanation and examples of modal verbs."
+                )
+            )
+            GlobalScope.launch {
+                withContext(Dispatchers.IO) {
+                    getDatabase().grammarDao().insertGrammar(grammarList)
+                }
+            }
+        }
+
+
+
+
 
     fun insertQuestions() {
         GlobalScope.launch {
