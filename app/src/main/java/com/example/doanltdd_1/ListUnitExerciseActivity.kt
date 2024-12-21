@@ -54,25 +54,25 @@ class ListUnitExerciseActivity : AppCompatActivity() {
             }
         }
         // Thiết lập điều hướng cho BottomNavigationView
-        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.navigation_vocabulary -> {
-                    // Màn hình hiện tại
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-                    true
-
-                }
-                R.id.navigation_grammar -> {
-                    // Chuyển đến màn hình Grammar
-                    true
-                }
-                R.id.navigation_exercise -> {
-                    true
-
-                }
-                else -> false
-            }
-        }
+//        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+//            when (item.itemId) {
+//                R.id.navigation_vocabulary -> {
+//                    // Màn hình hiện tại
+//                    val intent = Intent(this, MainActivity::class.java)
+//                    startActivity(intent)
+//                    true
+//
+//                }
+//                R.id.navigation_grammar -> {
+//                    // Chuyển đến màn hình Grammar
+//                    true
+//                }
+//                R.id.navigation_exercise -> {
+//                    true
+//
+//                }
+//                else -> false
+//            }
+//        }
     }
 }
