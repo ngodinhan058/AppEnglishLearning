@@ -20,4 +20,6 @@ interface GrammarDAO {
 
     @Query("DELETE FROM grammar")
     suspend fun deleteAll()
+    @Query("SELECT id FROM grammar")
+    suspend fun getAllGrammarIds(): List<Int>
 }
