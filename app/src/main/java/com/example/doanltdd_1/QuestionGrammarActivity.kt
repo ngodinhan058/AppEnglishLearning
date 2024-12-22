@@ -76,27 +76,27 @@ class QuestionGrammarActivity : AppCompatActivity() {
         val questionParts = currentQuestion.question.split(" / ")
 
         // Hiển thị câu hỏi với số thứ tự
-        questionTextView.text = "Câu ${questionIndex + 1}: ${currentQuestion.question}"
+        questionTextView.text = "Question ${questionIndex + 1}: ${currentQuestion.question}"
 
         // Gán dữ liệu vào Spinner
         spinnerList.forEachIndexed { index, spinner ->
-            if (index < questionParts.size) {
-                val adapter = ArrayAdapter(
-                    this,
-                    android.R.layout.simple_spinner_item,
-                    questionParts
-                )
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                spinner.adapter = adapter
-            } else {
-                spinner.adapter = ArrayAdapter(
-                    this,
-                    android.R.layout.simple_spinner_item,
-                    listOf("") // Giá trị trống cho spinner không sử dụng
-                )
+            val adapter = ArrayAdapter(
+                this,
+                android.R.layout.simple_spinner_item,
+                questionParts
+            )
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            spinner.adapter = adapter
+
+            // Hiển thị lại đáp án đã chọn (nếu có)
+            val previousAnswer = userAnswers.getOrNull(questionIndex)?.split(" ")?.getOrNull(index)
+            val position = adapter.getPosition(previousAnswer)
+            if (position >= 0) {
+                spinner.setSelection(position)
             }
         }
     }
+
 
 
     private fun handleButtons(
@@ -108,6 +108,8 @@ class QuestionGrammarActivity : AppCompatActivity() {
         buttonBack: Button
     ) {
         buttonNext.setOnClickListener {
+            // Lưu lại đáp án hiện tại
+            saveUserAnswer(spinnerList)
             questionIndex = if (questionIndex < questions.size - 1) {
                 questionIndex + 1
             } else {
@@ -117,6 +119,8 @@ class QuestionGrammarActivity : AppCompatActivity() {
         }
 
         buttonBack.setOnClickListener {
+            // Lưu lại đáp án hiện tại
+            saveUserAnswer(spinnerList)
             questionIndex = if (questionIndex > 0) {
                 questionIndex - 1
             } else {
@@ -124,6 +128,7 @@ class QuestionGrammarActivity : AppCompatActivity() {
             }
             loadQuestion(questions, questionTextView, spinnerList)
         }
+
 
         buttonSubmit.setOnClickListener {
             questions.forEachIndexed { index, currentQuestion ->
@@ -147,6 +152,17 @@ class QuestionGrammarActivity : AppCompatActivity() {
 
             // Chuyển sang màn hình kết quả
             navigateToResult(questions)
+        }
+    }
+
+    private fun saveUserAnswer(spinnerList: List<Spinner>) {
+        val userAnswer = spinnerList.joinToString(" ") { spinner ->
+            spinner.selectedItem?.toString() ?: ""
+        }
+        if (questionIndex < userAnswers.size) {
+            userAnswers[questionIndex] = userAnswer
+        } else {
+            userAnswers.add(userAnswer)
         }
     }
 
