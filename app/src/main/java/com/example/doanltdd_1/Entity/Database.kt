@@ -11,7 +11,7 @@ import com.example.doanltdd_1.DAO.UnitDAO
 import com.example.doanltdd_1.DAO.VocabularyDAO
 import com.example.doanltdd_1.Entity.UnitEntity
 
-@Database(entities = [UnitEntity::class, Question::class, Vocabulary::class, Grammar::class], version = 2, exportSchema = false)
+@Database(entities = [UnitEntity::class, Question::class, Vocabulary::class, Grammar::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun unitDao(): UnitDAO
