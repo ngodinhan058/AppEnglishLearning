@@ -5,6 +5,7 @@ import androidx.room.Room
 import com.example.doanltdd_1.Entity.AppDatabase
 import com.example.doanltdd_1.Entity.Grammar
 import com.example.doanltdd_1.Entity.Question
+import com.example.doanltdd_1.Entity.QuestionGrammar
 import com.example.doanltdd_1.Entity.UnitEntity
 import com.example.doanltdd_1.Entity.Vocabulary
 import com.example.doanltdd_1.R
@@ -52,44 +53,1175 @@ class Database(applicationContext: Context) {
     fun insertGrammar() {
         val grammarList = listOf(
             Grammar(
+                id = 1,
                 unitId = 1,
-                title = "Present Simple Tense",
-                content = "Rules and examples about present simple."
+                title = "Thì hiện tại đơn",
+                content = "Duy rides his bicycle to school every day.\n" +
+                        "Dịch nghĩa: Duy đạp xe đến trường mỗi ngày.\n" +
+                        "\n" +
+                        "My biology class starts at 7 am in the morning.\n" +
+                        "Dịch nghĩa: Tiết Sinh học của tôi bắt đầu lúc 7 giờ sáng.\n" +
+                        "\n" +
+                        "Our uniforms dry faster on sunny days.\n" +
+                        "Dịch nghĩa: Đồng phục của chúng tôi khô nhanh hơn vào những ngày nắng.\n" +
+                        "\n" +
+                        "I often finish my homework right after school. \n" +
+                        "Dịch nghĩa: Tôi thường hoàn thành bài tập về nhà ngay sau giờ học.",
+                usage = "Thì Hiện tại đơn là thì thể hiện những hành động hoặc sự việc xảy ra thường xuyên hoặc cố định, không đổi.\n" +
+                        "\n" +
+                        "Cấu trúc:\n" +
+                        "\n" +
+                        "Câu khẳng định: S + V(s/es)\n" +
+                        "Câu phủ định: S + don’t/doesn’t + V(bare)\n" +
+                        "Câu hỏi: Do/Does + S + V(bare)?\n" +
+                        "Nếu chủ ngữ trong câu sử dụng Thì Hiện tại đơn là số ít (she/he/it/danh từ số ít/danh từ không đếm được) thì thêm “s/es” ở cuối động từ chính trong câu khẳng định và sử dụng “does” trong câu phủ định và câu hỏi.\n" +
+                        "\n" +
+                        "Nếu chủ ngữ trong câu sử dụng Thì Hiện tại đơn là số nhiều (I/you/we/they/danh từ số nhiều) thì giữ nguyên động từ chính trong câu khẳng định và sử dụng “do” trong câu phủ định và câu hỏi.\n" +
+                        "\n" +
+                        "Thì Hiện tại đơn được sử dụng để diễn tả những sự việc, hành động luôn xảy ra thường xuyên, hoặc lặp đi lặp lại, hoặc diễn tả một chân lý, sự thật hiển nhiên, hoặc các sự việc cố định như lịch trình tàu, xe, …vv. Thì Hiện tại đơn còn được sử dụng để thể hiện tần suất thực hiện một hành động."
             ),
             Grammar(
+                id = 2,
                 unitId = 1,
-                title = "Present Continuous Tense",
-                content = "Rules and examples about present continuous."
+                title = "Trạng từ chỉ tần suất",
+                content = "We always have math class on Mondays.\n" +
+                        "Dịch nghĩa: Chúng tôi luôn học toán vào các ngày thứ Hai.\n" +
+                        "\n" +
+                        "Duy and Mai rarely have lunch together at school.\n" +
+                        "Dịch nghĩa: Duy và Mai hiếm khi dùng bữa trưa cùng nhau ở trường.",
+                usage = "Trạng từ chỉ tần suất được sử dụng để thể hiện mức độ thường xuyên xảy ra của một hành động hay sự việc nào đó.\n" +
+                        "\n" +
+                        "Đây là những từ như always (luôn luôn), usually (thường xuyên), often (thường xuyên), sometimes (thỉnh thoảng), rarely (hiếm khi), never (không bao giờ).\n" +
+                        "\n" +
+                        "Trạng từ chỉ tần suất thường xuất hiện trong các câu sử dụng Thì Hiện tại đơn. Thông thường, đặt các trạng từ chỉ tần suất trước động từ chính trong câu.\n" +
+                        "\n"
             ),
             Grammar(
+                id = 3,
                 unitId = 2,
-                title = "Prepositions of Place",
-                content = "Explanation of prepositions with examples."
+                title = "Giới từ chỉ vị trí",
+                content = "The book is on the armchair.\n" +
+                        "Dịch nghĩa: Cuốn sách đang trên cái ghế bành.\n" +
+                        "\n" +
+                        "The cat is under the bed.\n" +
+                        "Dịch nghĩa: Con mèo đang nằm dưới giường.\n" +
+                        "\n" +
+                        "She is standing in front of the lamp.\n" +
+                        "Dịch nghĩa: Cô ấy đang đứng trước cái đèn.\n" +
+                        "\n" +
+                        "The keys are between the cushions of the sofa.\n" +
+                        "Dịch nghĩa: Chùm chìa khóa đang ở giữa mấy cái gối trên sofa.",
+                usage = "Giới từ chỉ vị trí miêu tả địa điểm của người hoặc vật nào đó so với người hoặc vật khác.\n" +
+                        "\n" +
+                        "Các giới từ chỉ vị trí thường gặp gồm có: in (trong), on (trên), behind (đằng sau), under (dưới), next to (bên cạnh), in front of (trước), between (ở giữa)."
             ),
             Grammar(
+                id = 4,
+                unitId = 2,
+                title = "Sở hữu cách ",
+                content = "Phong's room has a bed, a desk, a fan, and a wardrobe.\n" +
+                        "Dịch nghĩa: Phòng của Phong có một chiếc giường, bàn học, cái quạt và tủ quần áo.\n" +
+                        "\n" +
+                        "My friend’s sister is two years older than me.\n" +
+                        "Dịch nghĩa: Chị gái của bạn tôi lớn hơn tôi hai tuổi.\n" +
+                        "\n" +
+                        "My flat is smaller than my friend’s. (= my friend’s flat.)\n" +
+                        "Dịch nghĩa: Căn hộ của tôi nhỏ hơn của bạn tôi. (= căn hộ của bạn tôi.)",
+                usage = "Sở hữu cách thể hiện quyền sở hữu của danh từ đứng trước nó đối với sự vật nào đó. Hình thức của sở hữu cách là ‘s, viết cuối danh từ có quyền sở hữu.\n" +
+                        "\n" +
+                        "***Lưu ý:\n" +
+                        "\n" +
+                        "Dạng sở hữu cách ‘s đứng cuối danh từ riêng hoặc danh từ số ít.\n" +
+                        "Danh từ có sở hữu cách có thể có danh từ khác theo sau hoặc không."
+            ),
+            Grammar(
+                id = 5,
                 unitId = 3,
-                title = "Present Perfect Tense",
-                content = "Rules and examples about present perfect."
+                title = "Thì Hiện tại tiếp diễn",
+                usage = "Thì Hiện tại tiếp diễn là thì thể hiện những hành động, sự việc đang xảy ra trong thời điểm hiện tại. \n" +
+                        "\n" +
+                        "Cấu trúc:\n" +
+                        "\n" +
+                        "Câu khẳng định: S + is/am/are + V-ing\n" +
+                        "Câu phủ định: S + isn’t/aren’t/am not + V-ing\n" +
+                        "Câu hỏi: Is/Am/Are + S + V-ing?\n" +
+                        "Thì Hiện tại tiếp diễn được sử dụng để diễn tả những sự việc, hành động đang xảy ra tại thời điểm nói. Những hành động này chưa được hoàn thành. Thì Hiện tại tiếp diễn còn được sử dụng để nói về những sự việc hay hành động đã kéo dài được một thời gian tại thời điểm nói và chưa có dấu hiệu dừng lại, hoặc diễn tả một trạng thái, tình trạng tạm thời.\n" +
+                        "\n" +
+                        "Một số dấu hiệu nhận biết của Thì Hiện tại tiếp diễn gồm có: now, at present, at the moment, … (đều có nghĩa hiện tại, bây giờ)",
+                content = "Look, Minh is making a cake!\n" +
+                        "Dịch nghĩa: Nhìn kìa, Minh đang làm bánh!\n" +
+                        "\n" +
+                        "I am learning to swim these days.\n" +
+                        "Dịch nghĩa: Dạo này tôi đang học bơi.\n" +
+                        "\n"
             ),
             Grammar(
+                id = 6,
                 unitId = 4,
-                title = "Comparative Adjectives",
-                content = "Usage and rules of comparative adjectives."
+                title = "Cấp so sánh hơn của tính từ",
+                usage = "Cấu trúc:\n" +
+                        "\n" +
+                        "Tính từ ngắn: adj-er/ier + than\n" +
+                        "Tính từ dài: more + adj + than",
+                content = "Life in the city is more expensive than life in the countryside.\n" +
+                        "Dịch nghĩa: Cuộc sống ở thành phố đắt đỏ hơn so với cuộc sống ở nông thôn.\n" +
+                        "\n" +
+                        "The museum is nearer than the temple, so let’s go to the museum first.\n" +
+                        "Dịch nghĩa: Đi bảo tàng gần hơn đi chùa, nên chúng ta cùng đến bảo tàng trước nào!\n" +
+                        "\n" +
+                        "Walking is better for our health than taking the bus.\n" +
+                        "Dịch nghĩa: Đi bộ tốt cho sức khỏe của chúng ta hơn là đi xe buýt.\n" +
+                        "\n"
             ),
             Grammar(
+                id = 7,
                 unitId = 5,
-                title = "Modal Verbs",
-                content = "Explanation and examples of modal verbs."
+                title = "Danh từ đếm được và danh từ không đếm được",
+                usage = "Danh từ đếm được là những danh từ chỉ người và vật mà có thể đếm được bằng số đếm. Danh từ đếm được gồm danh từ số ít và danh từ số nhiều.\n" +
+                        "\n" +
+                        "→ Sử dụng some (một vài), many (nhiều), a few (một ít) để thể hiện số lượng đối với các danh từ đếm được. \n" +
+                        "\n" +
+                        "Danh từ không đếm được là những danh từ chỉ vật mà không thể đếm được bằng số đếm. Danh từ không đếm được thường không có dạng số nhiều.\n" +
+                        "\n" +
+                        "→ Sử dụng some (một chút), much (nhiều), a little (một ít) để thể hiện lượng đối với các danh từ không đếm được. ",
+                content = "I’m packing a few pills for our trip to the mountains tomorrow.\n" +
+                        "Dịch nghĩa: Tôi đang chuẩn bị một vài viên thuốc cho chuyến dã ngoại trên núi của chúng ta vào ngày mai.\n" +
+                        "\n" +
+                        "Do you have some suncream?\n" +
+                        "Dịch nghĩa: Bạn có kem chống nắng không?"
+            ),
+            Grammar(
+                id = 8,
+                unitId = 5,
+                title = "Động từ khiếm khuyết: must - mustn’t (bắt buộc - cấm)",
+                usage = "Must được sử dụng để thể hiện sự cần thiết hay vô cùng quan trọng của một hành động nào đó.\n" +
+                        "Mustn’t được sử dụng để nói về hành động bị cấm hay không được phép. \n" +
+                        "Must - mustn’t là động từ khiếm khuyết, phải được theo sau bởi một động từ thường với chức năng là động từ chính trong câu.",
+                content = "You must be careful when you go swimming at the beach.\n" +
+                        "Dịch nghĩa: Bạn phải cẩn thận khi bạn đi bơi ở biển.\n" +
+                        "\n" +
+                        "We mustn’t litter in this national park.  \n" +
+                        "Dịch nghĩa: Chúng ta không được phép xả rác bừa bãi ở khu vực công viên quốc gia này.",
+            ),
+            Grammar(
+                id = 9,
+                unitId = 6,
+                title = "Động từ khiếm khuyết: should - shouldn’t (nên - không nên)",
+                usage = "Should - shouldn’t được sử dụng để diễn tả lời khuyên.\n" +
+                        "\n" +
+                        "Should được sử dụng để nói về những hành động tốt nên làm.\n" +
+                        "Shouldn’t được sử dụng để nói về những hành động không tốt và không nên làm. \n" +
+                        "Should - shouldn’t là động từ khiếm khuyết, phải được theo sau bởi một động từ thường với chức năng là động từ chính trong câu.",
+                content = "We should plant more trees.\n" +
+                        "Dịch nghĩa: Chúng ta nên trồng nhiều cây hơn.\n" +
+                        "\n" +
+                        "Everyone shouldn’t break things during Tet.  \n" +
+                        "Dịch nghĩa: Mọi người không nên đập vỡ đồ đạc vào dịp Tết.\n" +
+                        "\n",
+            ),
+            Grammar(
+                id = 10,
+                unitId = 6,
+                title = "Some/any (một vài/bất kì)",
+                usage = "Some/any được sử dụng để thể hiện số lượng.\n" +
+                        "\n" +
+                        "Some được sử dụng với các danh từ đếm được số nhiều và danh từ không đếm được trong câu khẳng định.\n" +
+                        "Any được sử dụng với các danh từ đếm được số nhiều và danh từ không đếm được trong câu phủ định và câu hỏi. \n" +
+                        "Some/any đứng ở trước danh từ trong câu. ",
+                content = "My mother always decorates the house with some flowers for Tet.\n" +
+                        "Dịch nghĩa: Mẹ tôi luôn trang hoàng nhà cửa với một vài loài hoa vào dịp Tết.\n" +
+                        "\n" +
+                        "Vietnamese people usually buy some salt to wish for good luck in the New Year.\n" +
+                        "Dịch nghĩa: Người Việt thường mua một ít muối để cầu may vào năm mới.\n" +
+                        "\n" +
+                        "We don’t have any banh chung yet.\n" +
+                        "Dịch nghĩa: Chúng tôi chưa có bánh chưng.\n" +
+                        "\n" +
+                        "Did you get any new clothes for the New Year?\n" +
+                        "Dịch nghĩa: Bạn đã mua quần áo mới cho năm mới chưa?",
+            ),
+            Grammar(
+                id = 11,
+                unitId = 7,
+                title = "Câu hỏi với từ để hỏi",
+                usage = "Các từ để hỏi thông dụng được liệt kê trong bảng dưới đây.\n" +
+                        "Từ để hỏi | Ý nghĩa \n" +
+                        "When | Khi nào \n" +
+                        "How many | Bao nhiêu \n" +
+                        "What | cái gì\n" +
+                        "Where | Ở đâu \n" +
+                        "Who | ai \n" +
+                        "Why | Tại sao \n",
+                content = "What television shows are currently popular?\n" +
+                        "Dịch nghĩa: Các chương trình truyền hình nào đang phổ biến hiện nay?\n" +
+                        "\n" +
+                        "How often do you watch television in a typical week?\n" +
+                        "Dịch nghĩa: Bạn thường xem TV bao nhiêu lần trong tuần?\n" +
+                        "\n" +
+                        "When do you often watch movies?\n" +
+                        "Dịch nghĩa: Bạn thường xem phim vào lúc nào?\n" +
+                        "\n" +
+                        "Why do you enjoy watching television?\n" +
+                        "Dịch nghĩa: Tại sao bạn thích xem TV?",
+            ),
+            Grammar(
+                id = 12,
+                unitId = 7,
+                title = "Liên từ trong câu ghép",
+                usage = "Câu ghép là câu có hai hoặc nhiều mệnh đề độc lập trong một câu. Một mệnh đề độc lập gồm có chủ ngữ và động từ (có thể có những thành phần khác như tân ngữ, trạng ngữ, vv…) và có thể đứng riêng lẻ mà không bị tối nghĩa hay bị sai về mặt ngữ pháp.\n" +
+                        "\n" +
+                        "Sử dụng các liên từ để liên kết các mệnh đề trong một câu ghép. Một số liên từ trong câu ghép là but (nhưng), so (vì vậy), and (và).",
+                content = "Mai wanted to watch her favorite show, but it was already over when she turned on the TV.\n" +
+                        "Dịch nghĩa: Mai muốn xem chương trình yêu thích của cô ấy, nhưng khi cô bật TV lên thì nó đã kết thúc.\n" +
+                        "\n" +
+                        "My mother enjoys watching TV shows and documentaries, and she finds them both informative and entertaining.\n" +
+                        "Dịch nghĩa: Mẹ tôi thích xem các chương trình truyền hình và phim tài liệu, và bà ấy thấy cả hai đều bổ ích và giải trí.\n" +
+                        "\n" +
+                        "I enjoy watching documentaries, so I often try to find educational channels.\n" +
+                        "Dịch nghĩa: Tôi thích xem phim tài liệu, vì vậy tôi thường xuyên tìm kiếm các kênh mang tính giáo dục.",
+            ),
+            Grammar(
+                id = 13,
+                unitId = 8,
+                title = "Thì Quá khứ đơn",
+                usage = "Thì Quá khứ đơn là thì thể hiện sự việc hay hành động đã xảy ra trong quá khứ.\n" +
+                        "\n" +
+                        "Cấu trúc:\n" +
+                        "\n" +
+                        "Câu khẳng định: S + V(ed)\n" +
+                        "Câu phủ định: S + didn’t + V(bare)\n" +
+                        "Câu hỏi: Did + S  + V(bare)?\n" +
+                        "Với các động từ thường có quy tắc, thêm “ed” vào cuối để tạo thành dạng quá khứ của động từ. Tuy nhiên, có rất nhiều động từ bất quy tắc không thêm “ed” mà biến đổi theo nhiều cách để trở thành dạng quá khứ. \n" +
+                        "\n" +
+                        "Thì Quá khứ đơn được sử dụng để diễn tả những sự việc, hành động đã hoàn thành trong quá khứ.",
+                content = "I forgot my goggles yesterday at swimming practice.\n" +
+                        "Dịch nghĩa: Hôm qua tôi quên mất kính bơi tại buổi tập bơi.\n" +
+                        "\n" +
+                        "Nam participated in a running competition last week.\n" +
+                        "Dịch nghĩa: Nam đã tham gia một cuộc thi chạy vào tuần trước.\n" +
+                        "\n" +
+                        "He played football with his friends yesterday afternoon.\n" +
+                        "Dịch nghĩa: Anh ấy đã chơi bóng đá cùng bạn bè vào buổi chiều hôm qua.\n" +
+                        "\n",
+            ),
+            Grammar(
+                id = 14,
+                unitId = 8,
+                title = "Câu mệnh lệnh",
+                usage = "Câu mệnh lệnh được sử dụng để đưa ra yêu cầu hoặc mệnh lệnh cho ai đó. \n" +
+                        "\n" +
+                        "Cấu trúc:\n" +
+                        "\n" +
+                        "Khẳng định: V(bare)\n" +
+                        "Phủ định: Don’t + V(bare)",
+                content = "Pass me the ball!\n" +
+                        "Dịch nghĩa: Chuyền cho tôi quả bóng đi!\n" +
+                        "\n" +
+                        "Don't forget to follow the rules of the game.\n" +
+                        "Dịch nghĩa: Đừng quên tuân thủ các quy tắc của trò chơi.",
+            ),
+            Grammar(
+                id = 15,
+                unitId = 9,
+                title = "Tính từ sở hữu",
+                usage = "Một tính từ sở hữu chỉ được sử dụng khi có danh từ đứng sau nó. Các tính từ sở hữu được tổng hợp trong bảng dưới đây.\n" +
+                        "\n" +
+                        "Đại từ nhân xưng | Tính từ sở hữu | Ý nghĩa tính từ sở hữu\n" +
+                        "I | my | của tôi \n" +
+                        "you | your | của bạn\n" +
+                        "we | our | của chúng ta\n" +
+                        "they | their | của họ\n" +
+                        "he | his | của anh ấy\n" +
+                        "she | her | của cô ấy\n" +
+                        "it | its | của nó\n",
+                content = "Ví dụ:\n" +
+                        "\n" +
+                        "My parents bought me some souvenirs from that stall over there.\n" +
+                        "Dịch nghĩa: Bố mẹ tôi đã mua cho tôi một số quà lưu niệm từ cái quầy đằng kia.\n" +
+                        "\n" +
+                        "Our country is famous for its street food.\n" +
+                        "Dịch nghĩa: Đất nước của chúng ta nổi tiếng nhờ đặc sản đường phố của nó."
+            ),
+
+            Grammar(
+                id = 16,
+                unitId = 9,
+                title = "Đại từ sở hữu",
+                usage = "Một đại từ sở hữu có thể đứng riêng lẻ, không có danh từ theo sau. Các đại từ sở hữu được tổng hợp trong bảng dưới đây.\n" +
+                        "\n" +
+                        "Đại từ nhân xưng | Đại từ sở hữu | Ý nghĩa đại từ sở hữu\n" +
+                        "I | mine | của tôi \n" +
+                        "you | yours | của bạn\n" +
+                        "we | ours | của chúng ta\n" +
+                        "they | theirs | của họ\n" +
+                        "he | his | của anh ấy\n" +
+                        "she | hers | của cô ấy\n" +
+                        "it | - | -\n",
+                content = "Ví dụ:\n" +
+                        "\n" +
+                        "Your city is more crowded than mine.\n" +
+                        "Dịch nghĩa: Thành phố của bạn đông đúc hơn thành phố của tôi.\n" +
+                        "\n" +
+                        "I think Mai’s hair is a little bit longer than yours.\n" +
+                        "Dịch nghĩa: Tôi nghĩ tóc của Mai dài hơn một chút so với tóc của bạn."
+            ),
+            Grammar(
+                id = 17,
+                unitId = 10,
+                title = "Thì Tương lai đơn",
+                usage = "Thì Tương lai đơn được sử dụng để diễn tả những sự việc hay hành động sẽ xảy ra trong tương lai nhưng chưa có dự định hay kế hoạch cụ thể từ trước. Thì Tương lai đơn còn được sử dụng để đưa ra những dự đoán về những sự việc có thể xảy ra trong tương lai. Ngoài ra, có thể sử dụng Thì Tương lai đơn khi đề nghị, đồng ý hoặc hứa hẹn sẽ làm gì đó.\n",
+                content = "Cấu trúc:\n" +
+                        "\n" +
+                        "Câu khẳng định: S + will + V(bare)\n" +
+                        "Câu phủ định: S + won’t + V(bare)\n" +
+                        "Câu hỏi: Will + S  + V(bare)?\n" +
+                        "\n" +
+                        "Ví dụ:\n" +
+                        "\n" +
+                        "My future house will be on the Moon.\n" +
+                        "Dịch nghĩa: Nhà tương lai của tôi sẽ ở trên Mặt Trăng.\n" +
+                        "\n" +
+                        "Vy thinks we will see flying cars soon.\n" +
+                        "Dịch nghĩa: Vy nghĩ rằng chúng ta sẽ sớm được thấy xe hơi biết bay.\n" +
+                        "\n" +
+                        "I’ll come to fix your electric fan tomorrow. I promise.\n" +
+                        "Dịch nghĩa: Ngày mai tôi sẽ đến sửa quạt điện cho bạn. Tôi hứa đấy."
+            ),
+
+            Grammar(
+                id = 18,
+                unitId = 10,
+                title = "Động từ khiếm khuyến: Might",
+                usage = "Might được sử dụng để nói về sự vật, hiện tượng có khả năng xảy ra trong tương lai, nhưng không chắc chắn sẽ xảy ra. Might là động từ khiếm khuyết, phải được theo sau bởi một động từ thường với chức năng là động từ chính trong câu.\n",
+                content = "Ví dụ:\n" +
+                        "\n" +
+                        "Our houses might get our electricity from the Sun.\n" +
+                        "Dịch nghĩa: Nhà của chúng ta có khả năng là sẽ lấy điện từ Mặt Trời.\n" +
+                        "\n" +
+                        "Robots might take care of our housework.\n" +
+                        "Dịch nghĩa: Người máy có khả năng sẽ làm việc nhà hộ chúng ta."
+            ),
+            Grammar(
+                id = 19,
+                unitId = 11,
+                title = "Mạo từ",
+                usage = "Mạo từ gồm hai loại: mạo từ không xác định (a/an) và mạo từ xác định (the). A/an đứng trước các danh từ đếm được số ít khi chúng chưa được xác định, hoặc khi chỉ nói chung về chúng. The đứng trước cả danh từ số ít và danh từ số nhiều khi chúng đã được xác định, tức khi chúng là một vật duy nhất, hay khi ai cũng biết về chúng, hoặc khi chúng được nhắc lại lần thứ hai.\n",
+                content = "Ví dụ:\n" +
+                        "\n" +
+                        "My mother bought a reusable shopping bag recently.\n" +
+                        "Dịch nghĩa: Gần đây mẹ tôi đã mua một cái túi mua sắm có thể tái sử dụng.\n" +
+                        "\n" +
+                        "The Sun is much larger than the Earth.\n" +
+                        "Dịch nghĩa: Mặt Trời lớn hơn nhiều so với Trái Đất.\n" +
+                        "\n" +
+                        "There is some paper in your drawer. Pass me the paper so I can recycle it, please.\n" +
+                        "Dịch nghĩa: Có một ít giấy trong ngăn kéo của bạn. Đưa cho tôi chỗ giấy đó để tôi đem đi tái chế nào."
+            ),
+
+            Grammar(
+                id = 20,
+                unitId = 11,
+                title = "Câu điều kiện loại I",
+                usage = "Câu điều kiện loại I diễn tả những sự việc hoặc hành động có thể xảy ra và có khả năng cao sẽ xảy ra trong hiện tại hoặc trong tương lai.\n",
+                content = "Cấu trúc: If + S + V(s/es), S + will/won’t + V(bare)\n" +
+                        "\n" +
+                        "Ví dụ:\n" +
+                        "\n" +
+                        "If I recycle more, I will help the environment.\n" +
+                        "Dịch nghĩa: Nếu tôi tái chế nhiều hơn, tôi sẽ giúp bảo vệ môi trường.\n" +
+                        "\n" +
+                        "If we walk instead of asking our parents to drive us, we will be more healthy.\n" +
+                        "Dịch nghĩa: Nếu chúng ta đi bộ thay vì nhờ bố mẹ chở, chúng ta sẽ khỏe mạnh hơn."
+            ),
+
+            Grammar(
+                id = 21,
+                unitId = 12,
+                title = "Cấp so sánh nhất của tính từ: Tính từ ngắn",
+                usage = "Cấp so sánh nhất của tính từ được sử dụng để so sánh từ 3 người hoặc vật trở lên. Cấp so sánh nhất của tính từ nhấn mạnh tính chất nào đó của 1 người hay vật là nhất so với những người hay vật còn lại trong nhóm.\n" +
+                        "Cấu trúc:\n" +
+                        "\n" +
+                        "Tính từ ngắn: the adj-est/iest\n" +
+                        "Có các tính từ đặc biệt trong so sánh nhất không tuân thủ cấu trúc trên, một số từ đã được liệt kê trong bảng dưới đây.\n" +
+                        "\n" +
+                        "Tính từ | Cấp so sánh nhất\n" +
+                        "good | the best\n" +
+                        "bad | the worst\n" +
+                        "far | the farthest/furthest\n" +
+                        "little | the least\n" +
+                        "many/much | the most\n" +
+                        "\n",
+                content =
+                "Ví dụ:\n" +
+                        "\n" +
+                        "My future robot will be the tallest in the world!\n" +
+                        "Dịch nghĩa: Người máy tương lai của tôi sẽ là người máy cao nhất thế giới!\n" +
+                        "\n" +
+                        "This is the smartest robot ever! It can work as a doctor and cure diseases.\n" +
+                        "Dịch nghĩa: Đây là người máy thông minh nhất từng thấy! Nó có thể hành nghề bác sĩ và chữa bệnh."
             )
+
+
+
+
+
+
         )
+
         GlobalScope.launch {
             withContext(Dispatchers.IO) {
-                getDatabase().grammarDao().insertGrammar(grammarList)
+                val dao = getDatabase().grammarDao()
+                val existingIds = dao.getAllGrammarIds() // Lấy danh sách ID hiện tại
+
+                // Lọc các bản ghi có id chưa tồn tại
+                val newGrammar = grammarList.filter { it.id !in existingIds }
+
+                if (newGrammar.isNotEmpty()) {
+                    dao.insertGrammar(newGrammar)
+                }
             }
         }
     }
+    fun insertQuestionGrammar() {
+        val questionGrammarList = listOf(
+            QuestionGrammar(
+                id = 1,
+                unitId = 1,
+                question = "rides / Duy / to school / every day.",
+                answer = "Duy rides to school every day."
+            ),
+            QuestionGrammar(
+                id = 2,
+                unitId = 1,
+                question = "always / We / have / math class.",
+                answer = "We always have math class."
+            ),
+            QuestionGrammar(
+                id = 3,
+                unitId = 1,
+                question = "My biology / starts / class / at 7 am.",
+                answer = "My biology class starts at 7 am."
+            ),
+            QuestionGrammar(
+                id = 4,
+                unitId = 1,
+                question = "dry / Our uniforms / faster / on sunny days.",
+                answer = "Our uniforms dry faster on sunny days."
+            ),
+            QuestionGrammar(
+                id = 5,
+                unitId = 1,
+                question = "I / often / finish / my homework.",
+                answer = "I often finish my homework."
+            ),
+            QuestionGrammar(
+                id = 6,
+                unitId = 1,
+                question = "usually / Mai / studies / hard.",
+                answer = "Mai usually studies hard."
+            ),
+            QuestionGrammar(
+                id = 7,
+                unitId = 1,
+                question = "rarely / have / Duy and Mai / lunch together.",
+                answer = "Duy and Mai rarely have lunch together."
+            ),
+            QuestionGrammar(
+                id = 8,
+                unitId = 1,
+                question = "sometimes / visit / We / our grandparents.",
+                answer = "We sometimes visit our grandparents."
+            ),
+            QuestionGrammar(
+                id = 9,
+                unitId = 1,
+                question = "always / wakes up / She / early.",
+                answer = "She always wakes up early."
+            ),
+            QuestionGrammar(
+                id = 10,
+                unitId = 1,
+                question = "teaches / Mr. John / English / every day.",
+                answer = "Mr. John teaches English every day."
+            ),
+            QuestionGrammar(
+                id = 11,
+                unitId = 2,
+                question = "on / The book / the armchair / is.",
+                answer = "The book is on the armchair."
+            ),
+            QuestionGrammar(
+                id = 12,
+                unitId = 2,
+                question = "under / The cat / the bed / is.",
+                answer = "The cat is under the bed."
+            ),
+            QuestionGrammar(
+                id = 13,
+                unitId = 2,
+                question = "in front of / is / She / the lamp.",
+                answer = "She is in front of the lamp."
+            ),
+            QuestionGrammar(
+                id = 14,
+                unitId = 2,
+                question = "are / between / the keys / the cushions.",
+                answer = "The keys are between the cushions."
+            ),
+            QuestionGrammar(
+                id = 15,
+                unitId = 2,
+                question = "next to / The chair / is / the table.",
+                answer = "The chair is next to the table."
+            ),
+            QuestionGrammar(
+                id = 16,
+                unitId = 2,
+                question = "Phong's / room / a desk / has.",
+                answer = "Phong's room has a desk."
+            ),
+            QuestionGrammar(
+                id = 17,
+                unitId = 2,
+                question = "friend's / sister / My / is older.",
+                answer = "My friend's sister is older."
+            ),
+            QuestionGrammar(
+                id = 18,
+                unitId = 2,
+                question = "My / is / smaller / flat.",
+                answer = "My flat is smaller."
+            ),
+            QuestionGrammar(
+                id = 19,
+                unitId = 2,
+                question = "is / This / Lan's / notebook.",
+                answer = "This is Lan's notebook."
+            ),
+            QuestionGrammar(
+                id = 20,
+                unitId = 2,
+                question = "belongs / This book / to / Nam's sister.",
+                answer = "This book belongs to Nam's sister."
+            ),
+            QuestionGrammar(
+                id = 21,
+                unitId = 3,
+                question = "is / Minh / making / a cake.",
+                answer = "Minh is making a cake."
+            ),
+            QuestionGrammar(
+                id = 22,
+                unitId = 3,
+                question = "learning / I / to swim / am.",
+                answer = "I am learning to swim."
+            ),
+            QuestionGrammar(
+                id = 23,
+                unitId = 3,
+                question = "are / They / playing / soccer.",
+                answer = "They are playing soccer."
+            ),
+            QuestionGrammar(
+                id = 24,
+                unitId = 3,
+                question = "at the moment / reading / She / is.",
+                answer = "She is reading at the moment."
+            ),
+            QuestionGrammar(
+                id = 25,
+                unitId = 3,
+                question = "working / We / on / are / a new project.",
+                answer = "We are working on a new project."
+            ),
+            QuestionGrammar(
+                id = 26,
+                unitId = 3,
+                question = "cooking / He / dinner / is / now.",
+                answer = "He is cooking dinner now."
+            ),
+            QuestionGrammar(
+                id = 27,
+                unitId = 3,
+                question = "My father / fixing / is / the car.",
+                answer = "My father is fixing the car."
+            ),
+            QuestionGrammar(
+                id = 28,
+                unitId = 3,
+                question = "am / My sister and I / painting / the house.",
+                answer = "My sister and I are painting the house."
+            ),
+            QuestionGrammar(
+                id = 29,
+                unitId = 3,
+                question = "the children / Is / playing / in the garden?",
+                answer = "Are the children playing in the garden?"
+            ),
+            QuestionGrammar(
+                id = 30,
+                unitId = 3,
+                question = "am / writing / I / an email.",
+                answer = "I am writing an email."
+            ),
+            QuestionGrammar(
+                id = 31,
+                unitId = 4,
+                question = "more / Life in the city / than / expensive / is life in the countryside.",
+                answer = "Life in the city is more expensive than life in the countryside."
+            ),
+            QuestionGrammar(
+                id = 32,
+                unitId = 4,
+                question = "nearer / than / The museum / is / the temple.",
+                answer = "The museum is nearer than the temple."
+            ),
+            QuestionGrammar(
+                id = 33,
+                unitId = 4,
+                question = "better / Walking / for our health / than / is taking the bus.",
+                answer = "Walking is better for our health than taking the bus."
+            ),
+            QuestionGrammar(
+                id = 34,
+                unitId = 4,
+                question = "faster / Cars / than / are / bicycles.",
+                answer = "Cars are faster than bicycles."
+            ),
+            QuestionGrammar(
+                id = 35,
+                unitId = 4,
+                question = "is / The book / more interesting / than / the movie.",
+                answer = "The book is more interesting than the movie."
+            ),
+            QuestionGrammar(
+                id = 36,
+                unitId = 4,
+                question = "is / My house / bigger / than / her house.",
+                answer = "My house is bigger than her house."
+            ),
+            QuestionGrammar(
+                id = 37,
+                unitId = 4,
+                question = "more delicious / Pizza / than / burgers / is.",
+                answer = "Pizza is more delicious than burgers."
+            ),
+            QuestionGrammar(
+                id = 38,
+                unitId = 4,
+                question = "is / today / colder / than / yesterday.",
+                answer = "Today is colder than yesterday."
+            ),
+            QuestionGrammar(
+                id = 39,
+                unitId = 4,
+                question = "more difficult / This exercise / than / is / the previous one.",
+                answer = "This exercise is more difficult than the previous one."
+            ),
+            QuestionGrammar(
+                id = 40,
+                unitId = 4,
+                question = "The test / than / was / harder / we expected.",
+                answer = "The test was harder than we expected."
+            ),
+            QuestionGrammar(
+                id = 41,
+                unitId = 5,
+                question = "packing / I’m / a few / pills.",
+                answer = "I’m packing a few pills."
+            ),
+            QuestionGrammar(
+                id = 42,
+                unitId = 5,
+                question = "some / Do / you / have / suncream?",
+                answer = "Do you have some suncream?"
+            ),
+            QuestionGrammar(
+                id = 43,
+                unitId = 5,
+                question = "some / We / water / need.",
+                answer = "We need some water."
+            ),
+            QuestionGrammar(
+                id = 44,
+                unitId = 5,
+                question = "some / My friend / bought / fruits.",
+                answer = "My friend bought some fruits."
+            ),
+            QuestionGrammar(
+                id = 45,
+                unitId = 5,
+                question = "don’t / We / have / any / milk.",
+                answer = "We don’t have any milk."
+            ),
+            QuestionGrammar(
+                id = 46,
+                unitId = 5,
+                question = "Did / any / you / get / oranges?",
+                answer = "Did you get any oranges?"
+            ),
+            QuestionGrammar(
+                id = 47,
+                unitId = 5,
+                question = "bought / My mom / a few / books.",
+                answer = "My mom bought a few books."
+            ),
+            QuestionGrammar(
+                id = 48,
+                unitId = 5,
+                question = "Do / have / you / any / rice?",
+                answer = "Do you have any rice?"
+            ),
+            QuestionGrammar(
+                id = 49,
+                unitId = 5,
+                question = "a little / I / need / sugar.",
+                answer = "I need a little sugar."
+            ),
+            QuestionGrammar(
+                id = 50,
+                unitId = 5,
+                question = "has / My friend / a few / questions.",
+                answer = "My friend has a few questions."
+            ),
+            QuestionGrammar(
+                id = 51,
+                unitId = 6,
+                question = "be / careful / You / must.",
+                answer = "You must be careful."
+            ),
+            QuestionGrammar(
+                id = 52,
+                unitId = 6,
+                question = "mustn’t / We / litter / here.",
+                answer = "We mustn’t litter here."
+            ),
+            QuestionGrammar(
+                id = 53,
+                unitId = 6,
+                question = "pay / You / must / attention.",
+                answer = "You must pay attention."
+            ),
+            QuestionGrammar(
+                id = 54,
+                unitId = 6,
+                question = "mustn’t / run / You / in the classroom.",
+                answer = "You mustn’t run in the classroom."
+            ),
+            QuestionGrammar(
+                id = 55,
+                unitId = 6,
+                question = "must / We / wear / uniforms.",
+                answer = "We must wear uniforms."
+            ),
+            QuestionGrammar(
+                id = 56,
+                unitId = 6,
+                question = "should / study / You / harder.",
+                answer = "You should study harder."
+            ),
+            QuestionGrammar(
+                id = 57,
+                unitId = 6,
+                question = "shouldn’t / We / waste / food.",
+                answer = "We shouldn’t waste food."
+            ),
+            QuestionGrammar(
+                id = 58,
+                unitId = 6,
+                question = "eat / You / more / should / vegetables.",
+                answer = "You should eat more vegetables."
+            ),
+            QuestionGrammar(
+                id = 59,
+                unitId = 6,
+                question = "shouldn’t / drive / fast / You.",
+                answer = "You shouldn’t drive fast."
+            ),
+            QuestionGrammar(
+                id = 60,
+                unitId = 6,
+                question = "help / others / We / should.",
+                answer = "We should help others."
+            ),
+            QuestionGrammar(
+                id = 61,
+                unitId = 7,
+                question = "What / are / television shows / popular?",
+                answer = "What television shows are popular?"
+            ),
+            QuestionGrammar(
+                id = 62,
+                unitId = 7,
+                question = "How / often / do / you watch?",
+                answer = "How often do you watch?"
+            ),
+            QuestionGrammar(
+                id = 63,
+                unitId = 7,
+                question = "Why / do / you / enjoy watching?",
+                answer = "Why do you enjoy watching?"
+            ),
+            QuestionGrammar(
+                id = 64,
+                unitId = 7,
+                question = "When / do / you / watch movies?",
+                answer = "When do you watch movies?"
+            ),
+            QuestionGrammar(
+                id = 65,
+                unitId = 7,
+                question = "Where / are / your / keys?",
+                answer = "Where are your keys?"
+            ),
+            QuestionGrammar(
+                id = 66,
+                unitId = 7,
+                question = "Who / is / that / man?",
+                answer = "Who is that man?"
+            ),
+            QuestionGrammar(
+                id = 67,
+                unitId = 7,
+                question = "How / many / apples / do you have?",
+                answer = "How many apples do you have?"
+            ),
+            QuestionGrammar(
+                id = 68,
+                unitId = 7,
+                question = "What / are / your / hobbies?",
+                answer = "What are your hobbies?"
+            ),
+            QuestionGrammar(
+                id = 69,
+                unitId = 7,
+                question = "When / is / your / birthday?",
+                answer = "When is your birthday?"
+            ),
+            QuestionGrammar(
+                id = 70,
+                unitId = 7,
+                question = "Where / do / you / live?",
+                answer = "Where do you live?"
+            ),
+            QuestionGrammar(
+                id = 71,
+                unitId = 8,
+                question = "He / played / football / yesterday.",
+                answer = "He played football yesterday."
+            ),
+            QuestionGrammar(
+                id = 72,
+                unitId = 8,
+                question = "My family / traveled / to / the beach.",
+                answer = "My family traveled to the beach."
+            ),
+            QuestionGrammar(
+                id = 73,
+                unitId = 8,
+                question = "I / forgot / my / book yesterday.",
+                answer = "I forgot my book yesterday."
+            ),
+            QuestionGrammar(
+                id = 74,
+                unitId = 8,
+                question = "We / watched / a / movie last night.",
+                answer = "We watched a movie last night."
+            ),
+            QuestionGrammar(
+                id = 75,
+                unitId = 8,
+                question = "They / visited / their / grandparents on Sunday.",
+                answer = "They visited their grandparents on Sunday."
+            ),
+            QuestionGrammar(
+                id = 76,
+                unitId = 8,
+                question = "Pass / me / the / book.",
+                answer = "Pass me the book."
+            ),
+            QuestionGrammar(
+                id = 77,
+                unitId = 8,
+                question = "Don't / forget / to / study.",
+                answer = "Don't forget to study."
+            ),
+            QuestionGrammar(
+                id = 78,
+                unitId = 8,
+                question = "Please / be / quiet / now.",
+                answer = "Please be quiet now."
+            ),
+            QuestionGrammar(
+                id = 79,
+                unitId = 8,
+                question = "Close / the / door / slowly.",
+                answer = "Close the door slowly."
+            ),
+            QuestionGrammar(
+                id = 80,
+                unitId = 8,
+                question = "Take / care / of / yourself.",
+                answer = "Take care of yourself."
+            ),
+            QuestionGrammar(
+                id = 81,
+                unitId = 9,
+                question = "My / parents / bought / me souvenirs.",
+                answer = "My parents bought me souvenirs."
+            ),
+            QuestionGrammar(
+                id = 82,
+                unitId = 9,
+                question = "Our / school / is / big.",
+                answer = "Our school is big."
+            ),
+            QuestionGrammar(
+                id = 83,
+                unitId = 9,
+                question = "Her / cat / is / cute.",
+                answer = "Her cat is cute."
+            ),
+            QuestionGrammar(
+                id = 84,
+                unitId = 9,
+                question = "His / car / is / red.",
+                answer = "His car is red."
+            ),
+            QuestionGrammar(
+                id = 85,
+                unitId = 9,
+                question = "Their / house / is / beautiful.",
+                answer = "Their house is beautiful."
+            ),
+            QuestionGrammar(
+                id = 86,
+                unitId = 9,
+                question = "This / book / is / mine.",
+                answer = "This book is mine."
+            ),
+            QuestionGrammar(
+                id = 87,
+                unitId = 9,
+                question = "The / bicycles / are / theirs.",
+                answer = "The bicycles are theirs."
+            ),
+            QuestionGrammar(
+                id = 88,
+                unitId = 9,
+                question = "That / pen / is / yours.",
+                answer = "That pen is yours."
+            ),
+            QuestionGrammar(
+                id = 89,
+                unitId = 9,
+                question = "The / toys / are / his.",
+                answer = "The toys are his."
+            ),
+            QuestionGrammar(
+                id = 90,
+                unitId = 9,
+                question = "The / house / is / ours.",
+                answer = "The house is ours."
+            ),
+            QuestionGrammar(
+                id = 91,
+                unitId = 10,
+                question = "My / future house / will / be / on the Moon.",
+                answer = "My future house will be on the Moon."
+            ),
+            QuestionGrammar(
+                id = 92,
+                unitId = 10,
+                question = "Vy / thinks / we / will / see flying cars.",
+                answer = "Vy thinks we will see flying cars."
+            ),
+            QuestionGrammar(
+                id = 93,
+                unitId = 10,
+                question = "I / will / come / to / fix your fan.",
+                answer = "I will come to fix your fan."
+            ),
+            QuestionGrammar(
+                id = 94,
+                unitId = 10,
+                question = "Our / houses / might / get / electricity from the Sun.",
+                answer = "Our houses might get electricity from the Sun."
+            ),
+            QuestionGrammar(
+                id = 95,
+                unitId = 10,
+                question = "Robots / might / take / care of / our housework.",
+                answer = "Robots might take care of our housework."
+            ),
+            QuestionGrammar(
+                id = 96,
+                unitId = 10,
+                question = "I / might / visit / my friend / tomorrow.",
+                answer = "I might visit my friend tomorrow."
+            ),
+            QuestionGrammar(
+                id = 97,
+                unitId = 10,
+                question = "You / will / enjoy / this / movie.",
+                answer = "You will enjoy this movie."
+            ),
+            QuestionGrammar(
+                id = 98,
+                unitId = 10,
+                question = "The / weather / might / be / rainy tomorrow.",
+                answer = "The weather might be rainy tomorrow."
+            ),
+            QuestionGrammar(
+                id = 99,
+                unitId = 10,
+                question = "I / won't / forget / to / call you.",
+                answer = "I won't forget to call you."
+            ),
+            QuestionGrammar(
+                id = 100,
+                unitId = 10,
+                question = "He / will / buy / a / new laptop.",
+                answer = "He will buy a new laptop."
+            ),
+            QuestionGrammar(
+                id = 101,
+                unitId = 11,
+                question = "My / mother / bought / a / reusable bag.",
+                answer = "My mother bought a reusable bag."
+            ),
+            QuestionGrammar(
+                id = 102,
+                unitId = 11,
+                question = "The / Sun / is / larger / than the Earth.",
+                answer = "The Sun is larger than the Earth."
+            ),
+            QuestionGrammar(
+                id = 103,
+                unitId = 11,
+                question = "Pass / me / the / paper / please.",
+                answer = "Pass me the paper please."
+            ),
+            QuestionGrammar(
+                id = 104,
+                unitId = 11,
+                question = "There / is / an / apple / on the table.",
+                answer = "There is an apple on the table."
+            ),
+            QuestionGrammar(
+                id = 105,
+                unitId = 11,
+                question = "If / I / recycle / more, / I will help the environment.",
+                answer = "If I recycle more, I will help the environment."
+            ),
+            QuestionGrammar(
+                id = 106,
+                unitId = 11,
+                question = "If / we / walk, / we / will be healthier.",
+                answer = "If we walk, we will be healthier."
+            ),
+            QuestionGrammar(
+                id = 107,
+                unitId = 11,
+                question = "The / bag / is / in / the drawer.",
+                answer = "The bag is in the drawer."
+            ),
+            QuestionGrammar(
+                id = 108,
+                unitId = 11,
+                question = "If / you / study / harder, / you will pass.",
+                answer = "If you study harder, you will pass."
+            ),
+            QuestionGrammar(
+                id = 109,
+                unitId = 11,
+                question = "The / book / is / on / the shelf.",
+                answer = "The book is on the shelf."
+            ),
+            QuestionGrammar(
+                id = 110,
+                unitId = 11,
+                question = "If / it / rains, / we / won’t go out.",
+                answer = "If it rains, we won’t go out."
+            ),
+            QuestionGrammar(
+                id = 111,
+                unitId = 12,
+                question = "My / future robot / will / be / the tallest in the world.",
+                answer = "My future robot will be the tallest in the world."
+            ),
+            QuestionGrammar(
+                id = 112,
+                unitId = 12,
+                question = "This / is / the / smartest robot / ever!",
+                answer = "This is the smartest robot ever!"
+            ),
+            QuestionGrammar(
+                id = 113,
+                unitId = 12,
+                question = "The / Nile / is / the / longest river.",
+                answer = "The Nile is the longest river."
+            ),
+            QuestionGrammar(
+                id = 114,
+                unitId = 12,
+                question = "This / is / the / most beautiful / place I’ve seen.",
+                answer = "This is the most beautiful place I’ve seen."
+            ),
+            QuestionGrammar(
+                id = 115,
+                unitId = 12,
+                question = "Mount / Everest / is / the / highest mountain.",
+                answer = "Mount Everest is the highest mountain."
+            ),
+            QuestionGrammar(
+                id = 116,
+                unitId = 12,
+                question = "This / exam / was / the / hardest one.",
+                answer = "This exam was the hardest one."
+            ),
+            QuestionGrammar(
+                id = 117,
+                unitId = 12,
+                question = "That / dog / is / the / friendliest.",
+                answer = "That dog is the friendliest."
+            ),
+            QuestionGrammar(
+                id = 118,
+                unitId = 12,
+                question = "This / is / the / best / idea we’ve had.",
+                answer = "This is the best idea we’ve had."
+            ),
+            QuestionGrammar(
+                id = 119,
+                unitId = 12,
+                question = "The / Amazon / is / the / widest river.",
+                answer = "The Amazon is the widest river."
+            ),
+            QuestionGrammar(
+                id = 120,
+                unitId = 12,
+                question = "This / is / the / most interesting / book.",
+                answer = "This is the most interesting book."
+            ),
 
 
+
+            )
+
+        GlobalScope.launch {
+            withContext(Dispatchers.IO) {
+                val dao = getDatabase().questionGrammarDao()
+                val existingIds = dao.getAllQuestionGrammarIds()
+                val newQuestions = questionGrammarList.filter { it.id !in existingIds }
+
+                // Chỉ chèn các câu hỏi mới
+                if (newQuestions.isNotEmpty()) {
+                    dao.insertQuestions(newQuestions)
+                }
+            }
+        }
+    }
 
 
 

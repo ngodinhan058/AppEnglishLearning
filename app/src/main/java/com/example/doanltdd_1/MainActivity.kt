@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         databaseUtils.insertUnits()
         databaseUtils.insertVocabulary()
         databaseUtils.insertGrammar()
+        databaseUtils.insertQuestionGrammar()
 
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView)

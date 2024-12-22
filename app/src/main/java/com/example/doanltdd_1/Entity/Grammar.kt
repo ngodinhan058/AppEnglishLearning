@@ -7,5 +7,6 @@ data class Grammar(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val unitId: Int,
     val title: String,
-    val content: String
+    val content: String,
+    val usage: String
 )
