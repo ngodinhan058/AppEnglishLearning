@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import com.example.doanltdd_1.Entity.AppDatabase
 import com.example.doanltdd_1.Untils.Database
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -21,6 +22,7 @@ class ListUnitExerciseActivity : AppCompatActivity() {
         setContentView(R.layout.exercise_list_unit)
 
 
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
 
         val databaseUtils = Database(applicationContext);
         database = databaseUtils.getDatabase()
@@ -51,5 +53,26 @@ class ListUnitExerciseActivity : AppCompatActivity() {
                 Log.d("Unit", "No units found in the database.")
             }
         }
+        // Thiết lập điều hướng cho BottomNavigationView
+//        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+//            when (item.itemId) {
+//                R.id.navigation_vocabulary -> {
+//                    // Màn hình hiện tại
+//                    val intent = Intent(this, MainActivity::class.java)
+//                    startActivity(intent)
+//                    true
+//
+//                }
+//                R.id.navigation_grammar -> {
+//                    // Chuyển đến màn hình Grammar
+//                    true
+//                }
+//                R.id.navigation_exercise -> {
+//                    true
+//
+//                }
+//                else -> false
+//            }
+//        }
     }
 }

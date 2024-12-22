@@ -23,17 +23,16 @@
             android:gravity="center">
 
             <!-- Mặt trước của Flashcard -->
-            <androidx.cardview.widget.CardView
+            <FrameLayout
                 android:id="@+id/front_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:orientation="vertical"
-                android:gravity="center"
                 android:background="@drawable/unit_background"
-                android:visibility="visible"
-                app:cardElevation="4dp"
-                app:cardCornerRadius="8dp">
+                android:paddingBottom="100dp"
+                android:layout_margin="8dp"
+                android:elevation="4dp"
+                android:layout_gravity="center"
+                android:clipToPadding="false">
 
                 <ImageView
                     android:id="@+id/flashcard_image"
@@ -80,25 +79,25 @@
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:layout_gravity="end"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:src="@drawable/ic_home"
+                    android:layout_marginTop="48dp"
+                    android:layout_marginEnd="36dp"
+                    android:src="@drawable/speak"
                     android:contentDescription="Play Audio" />
 
-            </androidx.cardview.widget.CardView>
+            </FrameLayout>
 
             <!-- Mặt sau của Flashcard -->
-            <androidx.cardview.widget.CardView
+            <FrameLayout
                 android:id="@+id/back_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:visibility="gone"
                 android:background="@drawable/unit_background"
-                app:cardElevation="4dp"
-                app:cardCornerRadius="8dp">
+                android:paddingBottom="100dp"
+                android:elevation="4dp"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:clipToPadding="false">
 
                 <ImageView
                     android:id="@+id/flashcard_image_back"
@@ -145,13 +144,13 @@
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:layout_gravity="end"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:src="@drawable/ic_home"
+                    android:layout_marginTop="48dp"
+                    android:layout_marginEnd="36dp"
+                    android:src="@drawable/speak"
                     android:contentDescription="Play Audio" />
 
 
-            </androidx.cardview.widget.CardView>
+            </FrameLayout>
 
         </LinearLayout>
 
