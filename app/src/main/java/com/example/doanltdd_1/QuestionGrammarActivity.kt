@@ -76,7 +76,7 @@ class QuestionGrammarActivity : AppCompatActivity() {
         val questionParts = currentQuestion.question.split(" / ")
 
         // Hiển thị câu hỏi với số thứ tự
-        questionTextView.text = "Question ${questionIndex + 1}: ${currentQuestion.question}"
+        questionTextView.text = "Question ${questionIndex + 1} : ${currentQuestion.question}"
 
         // Gán dữ liệu vào Spinner
         spinnerList.forEachIndexed { index, spinner ->
@@ -155,6 +155,7 @@ class QuestionGrammarActivity : AppCompatActivity() {
         }
     }
 
+    //luu dap an
     private fun saveUserAnswer(spinnerList: List<Spinner>) {
         val userAnswer = spinnerList.joinToString(" ") { spinner ->
             spinner.selectedItem?.toString() ?: ""
