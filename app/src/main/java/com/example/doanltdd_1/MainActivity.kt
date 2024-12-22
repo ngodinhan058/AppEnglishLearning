@@ -22,9 +22,11 @@ class MainActivity : AppCompatActivity() {
 
         val databaseUtils = Database(applicationContext);
         database = databaseUtils.getDatabase()
+        //databaseUtils.deleteAll()
         databaseUtils.getDatabase()
-//        databaseUtils.insertUnits()
-        databaseUtils.insertVocabulary( )
+        databaseUtils.insertUnits()
+        databaseUtils.insertVocabulary()
+        databaseUtils.insertQuestions()
         
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
 
@@ -32,14 +34,11 @@ class MainActivity : AppCompatActivity() {
             val dao = database.unitDao()
             val allUnits = dao.getAllUnits()
             Log.d("Unit", allUnits.toString())
-            // Ensure the list is not empty
             if (allUnits.isNotEmpty()) {
-                // Update the UI on the main thread
                 runOnUiThread {
                     val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
                     recyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
                     recyclerView.adapter = UnitAdapter(allUnits) { unitId ->
-                        // Handle item clicks
                         val intent = Intent(this@MainActivity, VocabularyActivity::class.java)
                         intent.putExtra("unitId", unitId)
                         startActivity(intent)
@@ -50,7 +49,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // Thiết lập điều hướng cho BottomNavigationView
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_vocabulary -> {
@@ -58,7 +56,6 @@ class MainActivity : AppCompatActivity() {
                     val intent = Intent(this, VocabularyActivity::class.java)
                     startActivity(intent)
                     true
-
                 }
                 R.id.navigation_grammar -> {
                     // Chuyển đến màn hình Grammar
@@ -66,11 +63,9 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.navigation_exercise -> {
                     // Chuyển đến màn hình Exercise
-
                     val intent = Intent(this, ListUnitExerciseActivity::class.java)
                     startActivity(intent)
                     true
-
                 }
                 else -> false
             }

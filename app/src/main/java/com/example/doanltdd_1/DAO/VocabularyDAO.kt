@@ -13,4 +13,7 @@ interface VocabularyDAO {
 
     @Query("SELECT * FROM vocabulary WHERE unitId = :unitId")
     suspend fun getVocabularyByUnitId(unitId: Int): List<Vocabulary>
+
+    @Query("DELETE FROM vocabulary")
+    suspend fun deleteVocabularies()
 }

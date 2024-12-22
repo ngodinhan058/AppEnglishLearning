@@ -2125,6 +2125,7 @@ class Database(applicationContext: Context) {
         GlobalScope.launch {
             database.unitDao().deleteAll()
             database.questionDao().deleteAll()
+            database.vocabularyDao().deleteVocabularies()
         }
     }
 }
