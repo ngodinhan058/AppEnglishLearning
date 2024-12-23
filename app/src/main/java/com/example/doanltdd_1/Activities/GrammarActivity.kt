@@ -1,4 +1,4 @@
-package com.example.doanltdd_1
+package com.example.doanltdd_1.Activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.doanltdd_1.Adapter.GrammarAdapter
 import com.example.doanltdd_1.Entity.AppDatabase
+import com.example.doanltdd_1.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

@@ -1,4 +1,4 @@
-package com.example.doanltdd_1
+package com.example.doanltdd_1.Activities
 
 import android.animation.Animator
 import android.animation.AnimatorInflater
@@ -11,9 +11,9 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
 import com.example.doanltdd_1.Entity.AppDatabase
 import com.example.doanltdd_1.Entity.Vocabulary
+import com.example.doanltdd_1.R
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 

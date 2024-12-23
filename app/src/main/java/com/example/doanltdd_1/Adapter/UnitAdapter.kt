@@ -1,4 +1,4 @@
-package com.example.doanltdd_1
+package com.example.doanltdd_1.Adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,9 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.doanltdd_1.DataSource.DataSource
-import com.example.doanltdd_1.Entity.Question
 import com.example.doanltdd_1.Entity.UnitEntity
+import com.example.doanltdd_1.R
 
 class UnitAdapter(
     private val unitList: List<UnitEntity>, // Đổi tên "units" thành "unitList" để rõ nghĩa hơn

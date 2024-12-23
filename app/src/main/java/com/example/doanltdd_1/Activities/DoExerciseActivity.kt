@@ -1,4 +1,4 @@
-package com.example.doanltdd_1
+package com.example.doanltdd_1.Activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,14 +8,11 @@ import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.room.Room
-import com.example.doanltdd_1.DataSource.DataSource
 import com.example.doanltdd_1.Entity.AppDatabase
 import com.example.doanltdd_1.Entity.Question
-import com.example.doanltdd_1.Untils.Database
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.example.doanltdd_1.DataSource.Database
+import com.example.doanltdd_1.MainActivity
+import com.example.doanltdd_1.R
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 

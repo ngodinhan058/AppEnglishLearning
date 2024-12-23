@@ -7,9 +7,12 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.doanltdd_1.DataSource.DataSource
+import com.example.doanltdd_1.Activities.DoExerciseActivity
+import com.example.doanltdd_1.Activities.GrammarActivity
+import com.example.doanltdd_1.Activities.VocabularyActivity
+import com.example.doanltdd_1.Adapter.UnitAdapter
 import com.example.doanltdd_1.Entity.AppDatabase
-import com.example.doanltdd_1.Untils.Database
+import com.example.doanltdd_1.DataSource.Database
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -28,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         databaseUtils.insertUnits()
         databaseUtils.insertVocabulary()
         databaseUtils.insertGrammar()
+        databaseUtils.insertQuestions()
         databaseUtils.insertQuestionGrammar()
 
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)

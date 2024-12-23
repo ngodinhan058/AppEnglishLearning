@@ -36,7 +36,7 @@
         android:id="@+id/buttonGrammarExercise"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Làm Bài Tập Grammar"
+        android:text="Do Grammar Exercises"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

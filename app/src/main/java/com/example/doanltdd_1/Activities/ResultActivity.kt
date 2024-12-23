@@ -1,4 +1,4 @@
-package com.example.doanltdd_1
+package com.example.doanltdd_1.Activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,8 @@ import android.widget.Button
 import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.doanltdd_1.MainActivity
+import com.example.doanltdd_1.R
 
 class ResultActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,17 +28,17 @@ class ResultActivity : AppCompatActivity() {
         val userAnswers = intent.getStringArrayExtra("userAnswers") ?: emptyArray()
 
         // Hiển thị dữ liệu
-        textViewScore.text = "Điểm: $score"
-        textViewCorrectAnswers.text = "Số câu đúng: $correctAnswers"
+        textViewScore.text = "Point: $score"
+        textViewCorrectAnswers.text = "Number of correct: $correctAnswers"
 
         // Hiển thị danh sách câu đúng và sai
         val results = questions.mapIndexed { index, question ->
             val status = if (userAnswers[index] == answers[index]) {
-                "✅ Bạn đã chọn đúng!"
+                "✅ You have chosen right!"
             } else {
-                "❌ Bạn đã chọn sai!"
+                "❌ You chose wrong!"
             }
-            "$question\nCâu trả lời của bạn: ${userAnswers[index]}\nĐáp án đúng: ${answers[index]}\n$status"
+            "$question\nYour answer: ${userAnswers[index]}\nCorrect answer: ${answers[index]}\n$status"
         }
 
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, results)
