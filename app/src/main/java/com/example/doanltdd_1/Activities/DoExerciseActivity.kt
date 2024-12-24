@@ -61,10 +61,12 @@ class DoExerciseActivity : AppCompatActivity() {
 
 
         GlobalScope.launch {
+            //truy vấn dữ liệu từ database
             val dao = database.questionDao()
             val allQuestions = dao.getAllQuestions()
             Log.d("Question", allQuestions.toString())
             if (allQuestions.isNotEmpty()) {
+                // tránh việc lỗi khi thay doi giao diện trong coroutine
                 runOnUiThread {
                     for (question in allQuestions) {
                         if (question.idUnit == unitId) {
@@ -136,6 +138,7 @@ class DoExerciseActivity : AppCompatActivity() {
         // Update click listeners to check the answer
         val correctAnswer = currentQuestion.correctAnswerIndex
         val answers = listOf(answer1, answer2, answer3, answer4)
+        //thuộc tính trả về 1 phần tử trong mảng
         for (i in answers.indices) {
             answers[i].setOnClickListener {
                 if (i == correctAnswer) {
@@ -145,7 +148,7 @@ class DoExerciseActivity : AppCompatActivity() {
                 }else{
                     incorrectNumber++
                 }
-                countDownTimer.cancel()  // stop the timer when an answer is selected
+                countDownTimer.cancel()
                 index++
                 if (index < questions.size) {
                     updateQuestion()
@@ -164,10 +167,11 @@ class DoExerciseActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        // Cancel the timer to prevent memory leaks
+        //kiểm tra xem biến countDownTimer đã được khởi tạo hay chưa.
         if (::countDownTimer.isInitialized) {
             countDownTimer.cancel()
         }
     }
+
 }
 
