@@ -21,7 +21,7 @@
         android:id="@+id/unit_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Unit 1"
+        android:text="@string/unit"
         android:textSize="24sp"
         android:layout_marginBottom="16dp"
         android:textStyle="bold"

@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="vocalbulary">Vocalbulary</string>
+    <string name="point">Điểm: 0</string>
+    <string name="correctNumber">Số câu đúng: 0</string>
+    <string name="back_home">Back Home</string>
+    <string name="unit_name">Unit Name</string>
+    <string name="textview">TextView</string>
+    <string name="submit">Submit</string>
+    <string name="next">Next</string>
+    <string name="grammar_title">Grammar Title</string>
+    <string name="how_to_use">Usage: How to use grammar here</string>
+    <string name="grammar_description">Grammar Description</string>
+    <string name="unit">Unit 1</string>
+    <string name="title_card">hoạt động</string>
+    <string name="tro_tu">n</string>
+    <string name="phien_am">/ækˈtɪv.ə.ti/</string>
+    <string name="play_audio">Play Audio</string>
+    <string name="meaning_in_vietnamese">Meaning in Vietnamese</string>
+    <string name="prev">Prev</string>
 </resources>

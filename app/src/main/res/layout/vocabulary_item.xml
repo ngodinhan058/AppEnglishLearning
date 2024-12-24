@@ -50,7 +50,7 @@
                     android:layout_marginEnd="24dp"
                     android:gravity="center"
                     android:paddingTop="16dp"
-                    android:text="hoạt động"
+                    android:text="@string/title_card"
                     android:textColor="@android:color/black"
                     android:textSize="24sp" />
 
@@ -61,7 +61,7 @@
                     android:layout_marginTop="260dp"
                     android:gravity="center"
                     android:paddingTop="8dp"
-                    android:text="n"
+                    android:text="@string/tro_tu"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
 
@@ -72,7 +72,7 @@
                     android:layout_marginTop="290dp"
                     android:gravity="center"
                     android:paddingVertical="8dp"
-                    android:text="/ækˈtɪv.ə.ti/"
+                    android:text="@string/phien_am"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
 
@@ -84,7 +84,7 @@
                     android:layout_marginTop="48dp"
                     android:layout_marginEnd="36dp"
                     android:src="@drawable/speak"
-                    android:contentDescription="Play Audio" />
+                    android:contentDescription="@string/play_audio" />
 
             </FrameLayout>
 
@@ -112,7 +112,7 @@
                     android:id="@+id/flashcard_meaning"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Meaning in Vietnamese"
+                    android:text="@string/meaning_in_vietnamese"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="200dp"
                     android:layout_marginEnd="24dp"
@@ -125,7 +125,7 @@
                     android:id="@+id/flashcard_part_of_speech_back"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="n"
+                    android:text="@string/tro_tu"
                     android:textSize="16sp"
                     android:layout_marginTop="260dp"
                     android:gravity="center"
@@ -136,7 +136,7 @@
                     android:id="@+id/flashcard_phonetic_back"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="/ækˈtɪv.ə.ti/"
+                    android:text="@string/phien_am"
                     android:textSize="16sp"
                     android:layout_marginTop="290dp"
                     android:paddingVertical="8dp"
@@ -151,7 +151,7 @@
                     android:layout_marginTop="48dp"
                     android:layout_marginEnd="36dp"
                     android:src="@drawable/speak"
-                    android:contentDescription="Play Audio" />
+                    android:contentDescription="@string/play_audio" />
 
 
             </FrameLayout>
@@ -171,7 +171,7 @@
                 android:id="@+id/button_previous"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Previous"
+                android:text="@string/prev"
                 android:layout_marginEnd="16dp"
                 android:textColor="@android:color/white" />
 
@@ -179,7 +179,7 @@
                 android:id="@+id/button_next"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Next"
+                android:text="@string/next"
                 android:textColor="@android:color/white" />
 
         </LinearLayout>

@@ -17,7 +17,7 @@
             android:id="@+id/grammarTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Grammar Title"
+            android:text="@string/grammar_title"
             android:textStyle="bold"
             android:textSize="18sp"
             android:textColor="#000000" />
@@ -25,7 +25,7 @@
             android:id="@+id/grammarUsage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Usage: How to use grammar here"
+            android:text="@string/how_to_use"
             android:textSize="14sp"
             android:textColor="#000000"
             android:layout_marginTop="8dp" />
@@ -34,7 +34,7 @@
             android:id="@+id/grammarContent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Grammar Description"
+            android:text="@string/grammar_description"
             android:textSize="14sp"
             android:textColor="#666666"
             android:layout_marginTop="4dp" />
