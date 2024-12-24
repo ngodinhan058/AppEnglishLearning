@@ -1,6 +1,8 @@
-package com.example.doanltdd_1
+package com.example.doanltdd_1.Activities
 
+import android.animation.Animator
 import android.animation.AnimatorInflater
+import android.animation.AnimatorListenerAdapter
 import android.animation.AnimatorSet
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -9,9 +11,9 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
 import com.example.doanltdd_1.Entity.AppDatabase
 import com.example.doanltdd_1.Entity.Vocabulary
+import com.example.doanltdd_1.R
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -33,14 +35,16 @@ class VocabularyActivity : AppCompatActivity() {
 
         frontCard = findViewById(R.id.front_card)
         backCard = findViewById(R.id.back_card)
+
+
         playAudioButton = findViewById(R.id.button_play_audio)
         playAudioButtonBack = findViewById(R.id.button_play_audio_back)
         previousButton = findViewById(R.id.button_previous)
         nextButton = findViewById(R.id.button_next)
 // Thiết lập cameraDistance trong code
-        val scale = resources.displayMetrics.density // Lấy mật độ màn hình
-        frontCard.cameraDistance = 5000 * scale
-        backCard.cameraDistance = 5000 * scale
+        val scale :Float = resources.displayMetrics.density // Lấy mật độ màn hình
+        frontCard.cameraDistance = 8000 * scale
+        backCard.cameraDistance = 8000 * scale
         val unitId = intent.getIntExtra("unitId", -1)
 
         // Load data from Room database
@@ -86,20 +90,33 @@ class VocabularyActivity : AppCompatActivity() {
 
         if (isFrontVisible) {
             flipOut.setTarget(frontCard)
-            frontCard.visibility = View.GONE
-            backCard.visibility = View.VISIBLE
             flipIn.setTarget(backCard)
+
+            flipOut.addListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    frontCard.visibility = View.GONE
+                    backCard.visibility = View.VISIBLE
+                    flipIn.start()
+                }
+            })
+            flipOut.start()
         } else {
             flipOut.setTarget(backCard)
-            backCard.visibility = View.GONE
-            frontCard.visibility = View.VISIBLE
             flipIn.setTarget(frontCard)
+
+            flipOut.addListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    backCard.visibility = View.GONE
+                    frontCard.visibility = View.VISIBLE
+                    flipIn.start()
+                }
+            })
+            flipOut.start()
         }
 
-        flipOut.start()
-        flipIn.start()
         isFrontVisible = !isFrontVisible
     }
+
 
 
     private fun updateFlashcard() {

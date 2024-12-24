@@ -13,7 +13,13 @@
         android:theme="@style/Theme.DoanLTDD_1"
         tools:targetApi="31">
         <activity
-            android:name=".GrammarActivity"
+            android:name=".Activities.ResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.QuestionGrammarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.GrammarActivity"
             android:exported="false" />
         <activity
             android:name=".ListUnitExerciseActivity"
@@ -28,10 +34,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".VocabularyActivity"
+            android:name=".Activities.VocabularyActivity"
             android:exported="false" />
         <activity
-            android:name=".DoExerciseActivity"
+            android:name=".Activities.DoExerciseActivity"
             android:exported="false" />
     </application>
 

@@ -16,6 +16,7 @@ class GrammarAdapter(
     class GrammarViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val title: TextView = itemView.findViewById(R.id.grammarTitle)
         val content: TextView = itemView.findViewById(R.id.grammarContent)
+        val usage: TextView = itemView.findViewById(R.id.grammarUsage) // Thêm TextView cho cách sử dụng
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GrammarViewHolder {
@@ -26,7 +27,9 @@ class GrammarAdapter(
     override fun onBindViewHolder(holder: GrammarViewHolder, position: Int) {
         val grammar = grammarList[position]
         holder.title.text = grammar.title
-        holder.content.text = grammar.content
+        holder.content.text = "Ví dụ : " + grammar.content
+        holder.usage.text = "Cách dùng : " + grammar.usage // Hiển thị cách sử dụng
+
         holder.itemView.setOnClickListener {
             onGrammarClick(grammar.id)
         }

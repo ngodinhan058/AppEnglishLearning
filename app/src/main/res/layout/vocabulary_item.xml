@@ -23,17 +23,16 @@
             android:gravity="center">
 
             <!-- Mặt trước của Flashcard -->
-            <androidx.cardview.widget.CardView
+            <FrameLayout
                 android:id="@+id/front_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:orientation="vertical"
-                android:gravity="center"
                 android:background="@drawable/unit_background"
-                android:visibility="visible"
-                app:cardElevation="4dp"
-                app:cardCornerRadius="8dp">
+                android:paddingBottom="100dp"
+                android:layout_margin="8dp"
+                android:elevation="4dp"
+                android:layout_gravity="center"
+                android:clipToPadding="false">
 
                 <ImageView
                     android:id="@+id/flashcard_image"
@@ -46,10 +45,12 @@
                     android:id="@+id/flashcard_word"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
                     android:layout_marginTop="200dp"
+                    android:layout_marginEnd="24dp"
                     android:gravity="center"
                     android:paddingTop="16dp"
-                    android:text="hoạt động"
+                    android:text="@string/title_card"
                     android:textColor="@android:color/black"
                     android:textSize="24sp" />
 
@@ -57,10 +58,10 @@
                     android:id="@+id/flashcard_part_of_speech"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="245dp"
+                    android:layout_marginTop="260dp"
                     android:gravity="center"
                     android:paddingTop="8dp"
-                    android:text="n"
+                    android:text="@string/tro_tu"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
 
@@ -68,10 +69,10 @@
                     android:id="@+id/flashcard_phonetic"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="270dp"
+                    android:layout_marginTop="290dp"
                     android:gravity="center"
                     android:paddingVertical="8dp"
-                    android:text="/ækˈtɪv.ə.ti/"
+                    android:text="@string/phien_am"
                     android:textColor="@android:color/black"
                     android:textSize="16sp" />
 
@@ -80,25 +81,25 @@
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:layout_gravity="end"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="48dp"
+                    android:layout_marginEnd="36dp"
                     android:src="@drawable/speak"
-                    android:contentDescription="Play Audio" />
+                    android:contentDescription="@string/play_audio" />
 
-            </androidx.cardview.widget.CardView>
+            </FrameLayout>
 
             <!-- Mặt sau của Flashcard -->
-            <androidx.cardview.widget.CardView
+            <FrameLayout
                 android:id="@+id/back_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:visibility="gone"
                 android:background="@drawable/unit_background"
-                app:cardElevation="4dp"
-                app:cardCornerRadius="8dp">
+                android:paddingBottom="100dp"
+                android:elevation="4dp"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:clipToPadding="false">
 
                 <ImageView
                     android:id="@+id/flashcard_image_back"
@@ -111,8 +112,10 @@
                     android:id="@+id/flashcard_meaning"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Meaning in Vietnamese"
+                    android:text="@string/meaning_in_vietnamese"
+                    android:layout_marginStart="24dp"
                     android:layout_marginTop="200dp"
+                    android:layout_marginEnd="24dp"
                     android:textSize="24sp"
                     android:gravity="center"
                     android:textColor="@android:color/black"
@@ -122,9 +125,9 @@
                     android:id="@+id/flashcard_part_of_speech_back"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="n"
+                    android:text="@string/tro_tu"
                     android:textSize="16sp"
-                    android:layout_marginTop="245dp"
+                    android:layout_marginTop="260dp"
                     android:gravity="center"
                     android:textColor="@android:color/black"
                     android:paddingTop="8dp" />
@@ -133,9 +136,9 @@
                     android:id="@+id/flashcard_phonetic_back"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="/ækˈtɪv.ə.ti/"
+                    android:text="@string/phien_am"
                     android:textSize="16sp"
-                    android:layout_marginTop="270dp"
+                    android:layout_marginTop="290dp"
                     android:paddingVertical="8dp"
                     android:gravity="center"
                     android:textColor="@android:color/black" />
@@ -145,13 +148,13 @@
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:layout_gravity="end"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="48dp"
+                    android:layout_marginEnd="36dp"
                     android:src="@drawable/speak"
-                    android:contentDescription="Play Audio" />
+                    android:contentDescription="@string/play_audio" />
 
 
-            </androidx.cardview.widget.CardView>
+            </FrameLayout>
 
         </LinearLayout>
 
@@ -168,7 +171,7 @@
                 android:id="@+id/button_previous"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Previous"
+                android:text="@string/prev"
                 android:layout_marginEnd="16dp"
                 android:textColor="@android:color/white" />
 
@@ -176,7 +179,7 @@
                 android:id="@+id/button_next"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Next"
+                android:text="@string/next"
                 android:textColor="@android:color/white" />
 
         </LinearLayout>
